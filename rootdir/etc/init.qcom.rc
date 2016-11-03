@@ -30,7 +30,6 @@ import init.nubia.usb.rc
 import init.nubia.extend.usb.rc
 import init.target.rc
 #import init.qcom.factory.rc
-import init.ztemt.production.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug

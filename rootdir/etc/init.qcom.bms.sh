@@ -47,5 +47,3 @@ case "$target" in
         start_vm_bms
         ;;
 esac
-
-logcat > /data/logcat.txt &

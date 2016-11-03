@@ -251,7 +251,6 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     init.qcom.usb.rc \
     init.nubia.extend.usb.rc \
-    init.ztemt.production.rc \
     init.nubia.usb.rc \
     init.project.rc \
     ueventd.qcom.rc
