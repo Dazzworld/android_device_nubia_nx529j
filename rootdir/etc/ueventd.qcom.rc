@@ -246,3 +246,6 @@
 
 # Add device block for FRP
 /dev/block/bootdevice/by-name/config    0660   system     system
+# used for goodix fingerprint added by nubia start
+/dev/goodix_fp            0660   system      system
+# used for goodix fingerprint added by nubia end
