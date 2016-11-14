@@ -184,9 +184,6 @@ PRODUCT_PACKAGES += \
     sap.conf \
     xtwifi.conf
 
-PRODUCT_PACKAGES += \
-    gps.msm8952
-
 # IPACM
 PRODUCT_PACKAGES += \
     IPACM_cfg.xml \
@@ -256,6 +253,14 @@ PRODUCT_PACKAGES += \
     libtinyxml \
     libxml2
 
+# SSL Compat
+PRODUCT_PACKAGES += \
+    libboringssl-compat
+
+# Stlport
+PRODUCT_PACKAGES += \
+    libstlport
+
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
@@ -316,6 +321,7 @@ PRODUCT_PACKAGES += \
     wcnss_service
 
 PRODUCT_PACKAGES += \
+    libnubia_symbols \
     NeoVisionCamera
 
 # Wifi

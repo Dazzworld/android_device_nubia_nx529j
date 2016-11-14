@@ -40,20 +40,19 @@ static struct light_state_t g_attention;
 static struct light_state_t g_notification;
 static struct light_state_t g_battery;
 
-#define OUTN_ON		2
-#define OUTN_OFF	0
+#define ALL_MASK	56
+#define HOME_MASK	16
+#define LEFT_MASK	32
+#define RIGHT_MASK	8
+#define LR_MASK		40
 
-#define MODE_NORMAL	2
-#define MODE_ALL	6
-#define MODE_BREATH	3
-
-#define FADE_NORMAL	"1 0 0"
-#define FADE_POWER_OFF	"0 0 0"
-#define FADE_BREATH	"3 0 4"
-
-#define GRADE_NORMAL	"10 255"
-#define GRADE_BREATH	"0 255"
-
+#define AW_POWER_OFF	0
+#define AW_CONST_ON 	1
+#define AW_CONST_OFF	2
+#define AW_FADE_AUTO	3
+#define AW_FADE_ON_STEP	4
+#define AW_FADE_OFF_STEP 5
+#define AW_FADE_CYCLE	6
 
 #define L_NOTIFICATION  0x01
 #define L_BATTERY       0x02
@@ -187,19 +186,18 @@ set_speaker_light_locked(int event,
 
     if (state == NULL) {
 	ALOGV("disabling buttons backlight\n");
-        write_int(LED_OUTN, OUTN_OFF);
-	write_int(LED_MODE, MODE_NORMAL);
-	write_str(LED_FADE,FADE_POWER_OFF);
-	write_str(LED_GRADE,GRADE_NORMAL);
+        write_int(LED_OUTN, 0);
+        write_int(LED_MODE, 0);
         return 0;
     }
 
     brightness = rgb_to_brightness(state);
     ALOGD("set_speaker_light_locked mode=%d brightnsS=%d\n", state->flashMode, brightness);
 
-    write_int(LED_OUTN, OUTN_OFF);
-    write_int(LED_MODE, MODE_NORMAL);
-    //write_int(LED_OUTN, HOME_MASK);
+    write_int(LED_OUTN, 0);
+    write_int(LED_MODE, 0);
+
+    write_int(LED_OUTN, HOME_MASK);
 
     if(state->flashMode == LIGHT_FLASH_TIMED) {
             onMS = state->flashOnMS;
@@ -211,8 +209,6 @@ set_speaker_light_locked(int event,
                 fgets(charging_status, 14, fp);
                 fclose(fp);
                 if (strstr(charging_status, "Charging") != NULL) {
-                    onMS = 500;
-                    offMS = 2000;
                     is_charging = 1;
                 } else {
                     return 0;
@@ -224,56 +220,10 @@ set_speaker_light_locked(int event,
             }
     }
 
-    ALOGD("set_speaker_light_locked mode %d,  onMS=%d, offMS=%d\n",
-            state->flashMode, onMS, offMS);
 
-    switch(onMS){
-	case 5000:
-	    onMS = 5;
-	    break;
-	case 2000:
-	    onMS = 4;
-	    break;
-	case 1000:
-	    onMS = 3;
-	    break;
-	case 500:
-	    onMS = 2;
-	    break;
-	case 250:
-	    onMS = 1;
-	    break;
-	default:
-	    onMS = 1;
-    }
-
-    switch(offMS){
-	case 5000:
-	    offMS = 5;
-	    break;
-	case 2000:
-	    offMS = 4;
-	    break;
-	case 1000:
-	    offMS = 3;
-	    break;
-	case 500:
-	    offMS = 2;
-	    break;
-	case 250:
-	    offMS = 1;
-	    break;
-	case 1:
-	    offMS = 0;
-	    break;
-	default:
-	    offMS = 0;
-    }
-
-    snprintf(buffer, sizeof(buffer), "%d %d %d\n", offMS, onMS, onMS);
-    write_str(LED_FADE, buffer);
-    write_str(LED_GRADE, GRADE_BREATH);
-    write_int(LED_MODE, MODE_BREATH);
+    write_str(LED_FADE, "3 0 4");
+    write_str(LED_GRADE, "0 255");
+    write_int(LED_MODE, AW_FADE_AUTO);
 
     return 0;
 }
@@ -327,25 +277,31 @@ set_light_buttons(struct light_device_t *dev,
 //    write_int(LED_MODE, 0);
 
     if(brightness == 0 && is_charging == 1){    // buttons on & charging
-        write_int(LED_OUTN, 0);
-        write_int(LED_MODE, 0);
+       // write_int(LED_OUTN, 0);
+       // write_int(LED_MODE, 0);
 
-        write_int(LED_OUTN, OUTN_ON);
-        write_str(LED_FADE, FADE_BREATH);
-        write_str(LED_GRADE, GRADE_BREATH);
-        write_int(LED_MODE, MODE_BREATH);
+        write_int(LED_OUTN, 16);
+        write_str(LED_FADE, "3 0 4");
+        write_str(LED_GRADE, "0 255");
+        write_int(LED_MODE, AW_FADE_AUTO);
         btn_state = 0;
     } else if(brightness != 0 && !btn_state) {                // turn buttons on
-        write_int(LED_OUTN, OUTN_ON);
-        write_str(LED_FADE, FADE_NORMAL);
-        write_int(LED_GRADE, GRADE_NORMAL);
-        write_int(LED_MODE, MODE_NORMAL);
+        write_int(LED_OUTN, 16);
+        write_str(LED_FADE, "1 0 0");
+        write_str(LED_GRADE, "10 255");
+        write_int(LED_MODE, AW_CONST_ON);
+
+/*
+        write_int(LED_OUTN, 2);
+        write_str(LED_FADE, "1 0 0");
+        write_str(LED_GRADE, "10 255");
+        write_int(LED_MODE, AW_CONST_OFF);*/
         btn_state = 1;
     } else if(brightness == 0 && btn_state){
-        write_int(LED_OUTN, OUTN_OFF);
-        write_str(LED_FADE, FADE_POWER_OFF);
-        write_int(LED_GRADE, GRADE_NORMAL);
-        write_int(LED_MODE, MODE_NORMAL);
+        write_int(LED_OUTN, 0);
+        write_str(LED_FADE, "1 0 0");
+        write_str(LED_GRADE, "10 255");
+        write_int(LED_MODE, AW_POWER_OFF);
         btn_state = 0;
     }
 
@@ -441,6 +397,10 @@ static int open_lights(const struct hw_module_t *module, const char *name,
     pthread_once(&g_init, init_globals);
 
     struct light_device_t *dev = malloc(sizeof(struct light_device_t));
+
+    if(!dev)
+        return -ENOMEM;
+
     memset(dev, 0, sizeof(*dev));
 
     dev->common.tag = HARDWARE_DEVICE_TAG;
@@ -466,6 +426,6 @@ struct hw_module_t HAL_MODULE_INFO_SYM = {
     .version_minor = 0,
     .id = LIGHTS_HARDWARE_MODULE_ID,
     .name = "NX529J Lights Module v1.0",
-    .author = "siyang editor",
+    .author = "siyang",
     .methods = &lights_module_methods,
 };
