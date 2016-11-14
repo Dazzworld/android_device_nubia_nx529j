@@ -38,9 +38,18 @@ on early-init
     insmod /sbin/qdrbg_module.ko
 
 on init
+
+    #export LD_PRELOAD "libboringssl-compat.so:libnubia_symbols.so"
+    export LD_SHIM_LIBS "/system/lib/libcrypto.so|libboringssl-compat.so:/system/lib/libui.so|libnubia_symbols.so:/system/lib64/libcrypto.so|libboringssl-compat.so:/system/vendor/lib64/egl/libEGL_adreno.so|libboringssl-compat.so"
+
+
     start qfintverify
     # Set permissions for persist partition
     mkdir /persist 0771 system system
+
+    # Support legacy paths
+    symlink /sdcard /mnt/sdcard
+    symlink /sdcard /storage/sdcard0
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
@@ -54,6 +63,8 @@ on early-boot
     write /sys/kernel/codec_type/boot ${persist.sys.external}
     write /sys/kernel/boot_adsp/boot 1
     chown root audio /sys/kernel/boot_adsp/boot
+
+    exec -- /init.qcom.early_boot.sh
 
 on boot
 
@@ -966,25 +977,6 @@ service profiler_daemon /system/bin/profiler_daemon
     group root
     disabled
 
-# virtual sdcard daemon running as media_rw (1023)
-service sdcard /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated
-    class late_start
-
-service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
-    class late_start
-    disabled
-
-#service fuse_uicc0 /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/uicc0 /storage/uicc0
-#    class late_start
-
-#service fuse_uicc1 /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/uicc1 /storage/uicc1
-#    class late_start
-#    disabled
-
-service fuse_usba /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/usba /storage/usba
-    class late_start
-    disabled
-
 # Binding fuse mount point to /storage/emulated/legacy
 on property:init.svc.sdcard=running
     wait /mnt/shell/emulated/0
@@ -1143,11 +1135,6 @@ on property:persist.sys.power_ctrl=1
     start power_engine
 on property:persist.sys.power_ctrl=0
     stop power_engine
-
-#dm instructions added by ztemt
-service dmapp /system/bin/dmapp
-	class main
-	seclabel u:r:dm:s0
 
 #This is for TP node.
 service tp_node /system/bin/sh /system/bin/tp_node.sh

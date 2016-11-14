@@ -47,7 +47,8 @@ fi
 
 log -t BOOT -p i "MSM target '$1', SoC '$soc_hwplatform', HwID '$soc_hwid', SoC ver '$soc_hwver'"
 
-case "$1" in
+target=`getprop ro.board.platform`
+case "$target" in
     "msm7630_surf" | "msm7630_1x" | "msm7630_fusion")
         case "$soc_hwplatform" in
             "FFA" | "SVLTE_FFA")
@@ -166,6 +167,31 @@ case "$1" in
                 ;;
         esac
         ;;
+    "msm8952")
+        case "$soc_hwplatform" in
+            "Dragon")
+                setprop ro.sf.lcd_density 240
+                setprop qemu.hw.mainkeys 0
+                ;;
+            *)
+                setprop ro.sf.lcd_density 480
+                ;;
+        esac
+        ;;
+     *)
+         if [ -z $fb_width ]; then
+             setprop ro.sf.lcd_density 320
+         else
+             if [ $fb_width -ge 1080 ]; then
+                 setprop ro.sf.lcd_density 480
+             elif [ $fb_width -ge 720 ]; then
+                 setprop ro.sf.lcd_density 320 #for 720X1280 resolution
+             elif [ $fb_width -ge 480 ]; then
+                 setprop ro.sf.lcd_density 240 #for 480X854 QRD resolution
+             else
+                 setprop ro.sf.lcd_density 160
+             fi
+        fi
 esac
 
 # Setup HDMI related nodes & permissions
