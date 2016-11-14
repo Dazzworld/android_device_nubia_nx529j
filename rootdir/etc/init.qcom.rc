@@ -988,6 +988,14 @@ service hcidump /system/bin/sh /system/etc/hcidump.sh
     disabled
     oneshot
 
+service poweroffcharge /sbin/poweroffcharge
+    class charger
+
+service productionmode /sbin/productionmode
+    class core
+    user root
+    disabled
+    oneshot
 
 service ssr_diag /system/bin/ssr_diag
     class late_start

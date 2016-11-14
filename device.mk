@@ -94,7 +94,7 @@ PRODUCT_PACKAGES += \
 
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
+    $(LOCAL_PATH)/audio/vendor/audio_effects.conf:system/vendor/etc/audio_effects.conf \
     $(LOCAL_PATH)/audio/audio_output_policy.conf:system/vendor/etc/audio_output_policy.conf \
     $(LOCAL_PATH)/audio/audio_platform_info.xml:system/etc/audio_platform_info.xml \
     $(LOCAL_PATH)/audio/audio_platform_info_extcodec.xml:system/etc/audio_platform_info_extcodec.xml \
@@ -148,6 +148,7 @@ PRODUCT_PACKAGES += \
 
 # DataServices
 PRODUCT_PACKAGES += \
+    services-ext \
     librmnetctl
 
 # Display
@@ -183,6 +184,9 @@ PRODUCT_PACKAGES += \
     lowi.conf \
     sap.conf \
     xtwifi.conf
+
+PRODUCT_PACKAGES += \
+    gps.msm8952
 
 # IPACM
 PRODUCT_PACKAGES += \
@@ -242,6 +246,7 @@ PRODUCT_PACKAGES += \
     libOmxSwVencHevc \
     libOmxVdec \
     libOmxVenc \
+    libextmedia_jni \
     libstagefrighthw
 
 # Power
@@ -287,6 +292,8 @@ PRODUCT_PACKAGES += \
     e2image_blocks \
     filefrag_blocks \
     mdtp_fota \
+    poweroffcharge \
+    productionmode \
     qfintverify \
     qcrypto_module.ko \
     qdrbg_module.ko
@@ -313,9 +320,7 @@ PRODUCT_COPY_FILES += \
 # WCNSS
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
-    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin \
-    $(LOCAL_PATH)/wifi/WCNSS_wlan_dictionary.dat:system/etc/firmware/wlan/prima/WCNSS_wlan_dictionary.dat
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 
 PRODUCT_PACKAGES += \
     wcnss_service
@@ -345,3 +350,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     p2p_supplicant_overlay.conf \
     wpa_supplicant_overlay.conf
+
+$(call inherit-product, device/nubia/NX529J/tapp/copyfiles.mk)

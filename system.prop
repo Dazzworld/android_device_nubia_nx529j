@@ -15,6 +15,9 @@ DEVICE_PROVISIONED=1
 ro.telephony.default_network=22,22
 ro.telephony.default_cdma_sub=0
 persist.radio.multisim.config=dsds
+ro.telephony.ril.config=simactivation
+ro.ril.multi_rat_capable=true
+persist.radio.rat_on=combine
 
 debug.sf.hw=0
 debug.egl.hw=0
@@ -94,6 +97,8 @@ ro.qualcomm.cabl=0
 # System props for telephony
 # System prop to turn on CdmaLTEPhone always
 telephony.lteOnCdmaDevice=1
+ril.ecclist=112,911,110,122,119,120,000,118
+ril.ecclist1=112,911,110,122,119,120,000,118
 
 #
 # System props for bluetooh
@@ -195,9 +200,7 @@ camera.hal1.packagelist=com.skype.raider
 #Add model number
 persist.sys.modelnumber=NX529J
 
-persist.radio.primarycard=true
-
-persist.radio.rat_on=combine
+#persist.radio.primarycard=true
 
 persist.camera.stats.test=5
 
@@ -220,6 +223,11 @@ sys.zte.bootsound.on=1
 #
 persist.sys.ssr.restart_level=3
 persist.sys.ap.restart_level=0
+
+drm.service.enabled=true
+ro.com.android.dataroaming=true
+ro.ril.hsxpa=1
+ro.ril.gprsclass=10
 
 persist.factory.receiver_volume=10
 persist.factory.loopback_volume=12

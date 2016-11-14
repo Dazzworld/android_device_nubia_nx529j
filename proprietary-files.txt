@@ -44,8 +44,6 @@ vendor/lib/rfsa/adsp/libscveTextReco_skel.so
 bin/tinycap
 bin/tinypcminfo
 bin/tinyplay
-lib64/hw/audio.primary.msm8952.so
-lib/hw/audio.primary.msm8952.so
 vendor/lib/libacdbmapper.so
 vendor/lib64/libacdbmapper.so
 vendor/lib/libaudioalsa.so
@@ -108,7 +106,7 @@ lib64/libavfilter.so
 lib64/libavformat.so
 lib64/libavutil.so
 lib/libnubia_trajectory.so
-lib/libnubia_trajectory.so
+lib64/libnubia_trajectory.so
 lib64/libpanoramahelper.so
 lib64/libpanoramahelper.so
 lib/libproductinfo.so
@@ -698,11 +696,11 @@ etc/cne/andsfCne.xml
 etc/permissions/cneapiclient.xml
 etc/permissions/com.quicinc.cne.xml
 etc/permissions/com.quicinc.wbc.xml
-framework/cneapiclient.jar
-framework/com.quicinc.cne.jar
-framework/com.quicinc.wbc.jar
-framework/com.quicinc.wbcservice.jar
--priv-app/CNEService/CNEService.apk
+#-framework/cneapiclient.jar
+#-framework/com.quicinc.cne.jar
+#-framework/com.quicinc.wbc.jar
+#-framework/com.quicinc.wbcservice.jar
+#-priv-app/CNEService/CNEService.apk
 vendor/lib/libNimsWrap.so
 vendor/lib/libcne.so
 vendor/lib/libcneapiclient.so
@@ -725,8 +723,8 @@ bin/dpmd
 etc/dpm/dpm.conf
 etc/dpm/nsrm/NsrmConfiguration.xml
 etc/permissions/dpmapi.xml
--framework/com.qti.dpmframework.jar
--framework/dpmapi.jar
+#-framework/com.qti.dpmframework.jar
+#-framework/dpmapi.jar
 vendor/lib/libdpmctmgr.so
 vendor/lib/libdpmfdmgr.so
 vendor/lib/libdpmframework.so
@@ -757,22 +755,6 @@ etc/firmware/ice40.bin
 etc/firmware/leia_pfp_470.fw
 etc/firmware/leia_pm4_470.fw
 
-# Fingerprint
-bin/gxFpDaemon
-lib/hw/gxfingerprint.default.so
-lib64/hw/gxfingerprint.default.so
-lib/libfpnav.so
-lib64/libfpnav.so
-lib/libfp_client.so
-lib/libfpservice.so
-lib64/libfp_client.so
-lib64/libfpservice.so
-lib/libFingerprintAPI.so
-lib64/libFingerprintAPI.so
--framework/goodix_fingerprintmanager.jar
--app/FingerPrintsUI/FingerPrintsUI.apk
--app/FpService/FpService.apk
-
 # GPS
 bin/loc_launcher
 bin/gpsone_daemon
@@ -780,12 +762,12 @@ bin/location-mq
 bin/lowi-server
 bin/xtwifi-client
 bin/xtwifi-inet-agent
-etc/permissions/com.qualcomm.location.xml
-etc/permissions/com.qualcomm.location.vzw_library.xml
-framework/com.qualcomm.location.vzw_library.jar
+#etc/permissions/com.qualcomm.location.xml
+#etc/permissions/com.qualcomm.location.vzw_library.xml
+#framework/com.qualcomm.location.vzw_library.jar
 -lib/libloc_api_v02.so
 -lib64/libloc_api_v02.so
--priv-app/com.qualcomm.location/com.qualcomm.location.apk
+#-priv-app/com.qualcomm.location/com.qualcomm.location.apk
 vendor/bin/slim_daemon
 vendor/lib/hw/flp.default.so
 vendor/lib/libalarmservice_jni.so
@@ -929,23 +911,22 @@ vendor/lib64/libquipc_os_api.so
 vendor/lib64/libsmemlog.so
 
 # Radio
--app/btmultisim/btmultisim.apk
--app/FrameworkDataStatisticsService/FrameworkDataStatisticsService.apk
--app/datastatusnotification/datastatusnotification.apk
--app/fastdormancy/fastdormancy.apk
--app/QtiDdsSwitchService/QtiDdsSwitchService.apk
--app/shutdownlistener/shutdownlistener.apk
--app/QComQMIPermissions/QComQMIPermissions.apk
-etc/permissions/qcnvitems.xml
-etc/permissions/qcrilhook.xml
-etc/permissions/btmultisim.xml
-etc/permissions/imscm.xml
-etc/permissions/interface_permissions.xml
--app/qcrilmsgtunnel/qcrilmsgtunnel.apk
--framework/qcnvitems.jar
--framework/qcrilhook.jar
--framework/btmultisimlibrary.jar
--framework/telephony-static-config.jar
+#-app/btmultisim/btmultisim.apk
+#-app/FrameworkDataStatisticsService/FrameworkDataStatisticsService.apk
+#-app/datastatusnotification/datastatusnotification.apk
+#-app/fastdormancy/fastdormancy.apk
+#-app/QtiDdsSwitchService/QtiDdsSwitchService.apk
+#-app/shutdownlistener/shutdownlistener.apk
+#-app/QComQMIPermissions/QComQMIPermissions.apk
+#etc/permissions/qcnvitems.xml
+#etc/permissions/qcrilhook.xml
+#etc/permissions/btmultisim.xml
+#etc/permissions/interface_permissions.xml
+#-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
+#-framework/qcnvitems.jar
+#-framework/qcrilhook.jar
+#-framework/btmultisimlibrary.jar
+#-framework/telephony-static-config.jar
 bin/netmgrd
 bin/qmuxd
 bin/radish
@@ -974,6 +955,7 @@ bin/ims_rtp_daemon
 bin/imscmservice
 bin/imsdatadaemon
 bin/imsqmidaemon
+etc/permissions/imscm.xml
 -vendor/app/ims/ims.apk
 -framework/imscmlibrary.jar
 vendor/lib/lib-imscamera.so
@@ -1102,8 +1084,6 @@ lib/egl/egl.cfg
 lib/egl/libGLES_android.so
 lib64/egl/libGLES_android.so
 lib/modules/pronto/pronto_wlan.ko
-lib/libbson.so
-lib64/libbson.so
 lib/librmnetctl.so
 lib64/librmnetctl.so
 lib/libwifi-hal-qcom.so
@@ -1211,9 +1191,8 @@ bin/tinycap
 bin/tinypcminfo
 bin/tinyplay
 etc/aanc_tuning_mixer.txt
-lib/libloc_ds_api.so
+
 lib/libtinyxml2.so
-lib64/libloc_ds_api.so
 lib64/libtinyxml2.so
 vendor/lib64/librmp.so
 etc/ethertypes
@@ -1253,7 +1232,7 @@ vendor/lib/lib-sec-disp.so
 vendor/lib/libslimclient.so
 vendor/lib/libSonyIMX298AFPdafLibrary.so
 vendor/lib/libsregex.so
-vendor/lib/libsrsprocessing.so
+-vendor/lib/libsrsprocessing.so
 vendor/lib/libssd.so
 vendor/lib/libstaapi.so
 vendor/lib/libsta_lib_third_party_libsta_lib_libsta_gyp.so
@@ -1265,3 +1244,4 @@ vendor/lib/libtm_interface.so
 vendor/lib/libvoice-svc.so
 vendor/lib/libwvdrm_L3.so
 vendor/lib/libWVStreamControlAPI_L3.so
+bin/tp_node.sh

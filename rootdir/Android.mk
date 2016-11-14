@@ -189,3 +189,19 @@ LOCAL_MODULE_CLASS := ETC
 LOCAL_SRC_FILES    := etc/sbin/qdrbg_module.ko
 LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)/sbin
 include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := poweroffcharge
+LOCAL_MODULE_TAGS  := optional eng
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES    := etc/sbin/poweroffcharge
+LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)/sbin
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := productionmode
+LOCAL_MODULE_TAGS  := optional eng
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES    := etc/sbin/productionmode
+LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)/sbin
+include $(BUILD_PREBUILT)
