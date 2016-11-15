@@ -34,6 +34,7 @@ extern "C" {
 #endif /* __cplusplus */
 
 #include <ctype.h>
+#include <stdlib.h>
 #include <stdbool.h>
 #include <hardware/gps.h>
 

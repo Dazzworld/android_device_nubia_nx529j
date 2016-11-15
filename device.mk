@@ -326,6 +326,7 @@ PRODUCT_PACKAGES += \
     wcnss_service
 
 PRODUCT_PACKAGES += \
+    libril_shim \
     libnubia_symbols \
     NeoVisionCamera
 
