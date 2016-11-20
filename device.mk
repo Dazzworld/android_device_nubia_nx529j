@@ -322,6 +322,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 
+# PM
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/pm/pm-proxy:system/bin/pm-proxy \
+    $(LOCAL_PATH)/pm/pm-service:system/bin/pm-service \
+    $(LOCAL_PATH)/pm/libperipheral_client.so:/system/vendor/lib64/libperipheral_client.so
+
 PRODUCT_PACKAGES += \
     wcnss_service
 
