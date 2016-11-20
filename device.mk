@@ -325,10 +325,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     wcnss_service
 
+# Camera
+#PRODUCT_PACKAGES += \
+#    camera.msm8952 \
+#    libmm-qcamera
+
 PRODUCT_PACKAGES += \
     libril_shim \
-    libnubia_symbols \
-    NeoVisionCamera
+    libnubia_symbols
 
 # Wifi
 PRODUCT_PACKAGES += \

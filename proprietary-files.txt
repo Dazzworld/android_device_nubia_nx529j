@@ -767,6 +767,8 @@ bin/xtwifi-inet-agent
 #framework/com.qualcomm.location.vzw_library.jar
 -lib/libloc_api_v02.so
 -lib64/libloc_api_v02.so
+-lib/libloc_ds_api.so
+-lib64/libloc_ds_api.so
 #-priv-app/com.qualcomm.location/com.qualcomm.location.apk
 vendor/bin/slim_daemon
 vendor/lib/hw/flp.default.so
@@ -1089,7 +1091,6 @@ lib64/librmnetctl.so
 lib/libwifi-hal-qcom.so
 lib64/libwifi-hal-qcom.so
 vendor/bin/audioflacapp
-vendor/lib/drm/libdrmwvmplugin.so
 vendor/lib/hw/wbc_hal.default.so
 vendor/lib64/hw/wbc_hal.default.so
 
@@ -1242,6 +1243,4 @@ vendor/lib/libsubsystem_control.so
 vendor/lib/libSubSystemShutdown.so
 vendor/lib/libtm_interface.so
 vendor/lib/libvoice-svc.so
-vendor/lib/libwvdrm_L3.so
-vendor/lib/libWVStreamControlAPI_L3.so
 bin/tp_node.sh
