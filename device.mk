@@ -332,9 +332,9 @@ PRODUCT_PACKAGES += \
     wcnss_service
 
 # Camera
-PRODUCT_PACKAGES += \
-    camera.msm8952 \
-    libmm-qcamera
+#PRODUCT_PACKAGES += \
+#    camera.msm8952 \
+#    libmm-qcamera
 
 PRODUCT_PACKAGES += \
     libnubia_symbols
