@@ -40,7 +40,7 @@ on early-init
 on init
 
     #export LD_PRELOAD "libboringssl-compat.so:libnubia_symbols.so"
-    export LD_SHIM_LIBS "/system/lib/libcrypto.so|libboringssl-compat.so:/system/lib/libui.so|libnubia_symbols.so:/system/lib64/libcrypto.so|libboringssl-compat.so:/system/vendor/lib64/egl/libEGL_adreno.so|libboringssl-compat.so:/system/vendor/lib64/libcne.so|libril_shim.so:/system/vendor/lib64/libdpmframework.so|libril_shim.so"
+    export LD_SHIM_LIBS "/system/lib/libcrypto.so|libboringssl-compat.so:/system/lib/libui.so|libnubia_symbols.so:/system/lib64/libcrypto.so|libboringssl-compat.so:/system/vendor/lib64/egl/libEGL_adreno.so|libboringssl-compat.so
 
 
     start qfintverify

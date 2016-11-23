@@ -1,25 +1,23 @@
-LOCAL_PATH:= $(call my-dir)
+MM_V4L2_DRIVER_LIST += msm8960
+MM_V4L2_DRIVER_LIST += msm8974
+MM_V4L2_DRIVER_LIST += msm8916
+MM_V4L2_DRIVER_LIST += msm8226
+MM_V4L2_DRIVER_LIST += msm8610
+MM_V4L2_DRIVER_LIST += apq8084
+MM_V4L2_DRIVER_LIST += mpq8092
+MM_V4L2_DRIVER_LIST += msm_bronze
+MM_V4L2_DRIVER_LIST += msm8916
+MM_V4L2_DRIVER_LIST += msm8994
+MM_V4L2_DRIVER_LIST += msm8084
+MM_V4L2_DRIVER_LIST += msm8909
+MM_V4L2_DRIVER_LIST += msm8952
+MM_V4L2_DRIVER_LIST += msm8996
+MM_V4L2_DRIVER_LIST += msm8992
 
-include $(CLEAR_VARS)
-LOCAL_MODULE        := NeoVisionCamera
-LOCAL_MODULE_TAGS   := optional
-LOCAL_MODULE_CLASS  := APPS
-LOCAL_MODULE_OWNER  := nubia
-LOCAL_MODULE_SUFFIX := .apk
-LOCAL_SRC_FILES     := NeoVisionCamera.apk
-LOCAL_CERTIFICATE   := shared
-include $(BUILD_PREBUILT)
-
-
-include $(CLEAR_VARS)
-
-LOCAL_SRC_FILES := \
-    Fence.cpp
-
-LOCAL_SHARED_LIBRARIES := libbinder libui
-
-LOCAL_MODULE := libnubia_symbols
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-
-include $(BUILD_SHARED_LIBRARY)
+ifneq (,$(filter $(MM_V4L2_DRIVER_LIST),$(TARGET_BOARD_PLATFORM)))
+  ifneq ($(strip $(USE_CAMERA_STUB)),true)
+    ifneq ($(BUILD_TINY_ANDROID),true)
+      include $(call all-subdir-makefiles)
+    endif
+  endif
+endif
