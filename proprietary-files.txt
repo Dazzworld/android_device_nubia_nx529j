@@ -72,14 +72,18 @@ vendor/lib64/libbtnv.so
 
 # Camera
 bin/mm-qcamera-daemon
-lib/hw/camera.msm8952.so
+lib/hw/camera.vendor.msm8952.so
 lib/libmm-qcamera.so
 lib/libmmcamera_interface.so
 lib/libmmcamera_nubiacustpro.so
 lib/libmmjpeg_interface.so
 lib/libmorpho_panorama_gp.so
 lib64/libmorpho_panorama_gp.so
-lib/libImageAlogrithm.so
+lib/libFNVfbEngineHAL.so
+lib/libnubia_effect.so
+lib/libnubiajpeg_temp.so
+lib64/libnubiajpeg_temp.so
+lib64/libImageAlogrithm.so
 lib64/libFNVfbEngineLib.so
 lib/libIndependenceUtil.so
 lib64/libIndependenceUtil.so
@@ -96,17 +100,11 @@ lib/libBuffer.so
 lib64/libBuffer.so
 lib/libBurstProcessJni.so
 lib64/libBurstProcessJni.so
-lib/libdng_creator.so
-lib64/libdng_creator.so
-lib/libeletronicAlgorithm.so
-lib64/libeletronicAlgorithm.so
 lib64/libnubia_delay_recorder.so
 lib64/libavcodec.so
 lib64/libavfilter.so
 lib64/libavformat.so
 lib64/libavutil.so
-lib/libnubia_trajectory.so
-lib64/libnubia_trajectory.so
 lib64/libpanoramahelper.so
 lib64/libpanoramahelper.so
 lib/libproductinfo.so
@@ -677,7 +675,16 @@ vendor/lib/libchromatix_s5k3m2_zsl_preview_nightmode1_bu64297gwz.so
 vendor/lib/libchromatix_s5k3m2_zsl_preview_nightmode_bu64297gwz.so
 vendor/lib/libchromatix_s5k3m2_zsl_preview_panorama_bu64297gwz.so
 vendor/lib/libchromatix_s5k3m2_zsl_video_bu64297gwz.so
-
+vendor/lib/libchromatix_imx298_a3_microspur_af.so
+vendor/lib/libchromatix_imx298_cpp_iso128_preview.so
+vendor/lib/libchromatix_imx298_cpp_iso128_snapshot.so
+vendor/lib/libchromatix_imx298_cpp_microspur.so
+vendor/lib/libchromatix_imx298_cpp_preview_nightmode2.so
+vendor/lib/libchromatix_imx298_cpp_snapshot_nightmode2.so
+vendor/lib/libchromatix_imx298_iso128_common.so
+vendor/lib/libchromatix_imx298_iso128_snapshot.so
+vendor/lib/libchromatix_imx298_snapshot_nightmode2.so
+vendor/lib/libchromatix_imx298_zsl_preview_nightmode2.so
 
 # Camera firmware
 etc/firmware/cpp_firmware_v1_1_1.fw
@@ -688,6 +695,11 @@ etc/firmware/cpp_firmware_v1_5_0.fw
 etc/firmware/cpp_firmware_v1_6_0.fw
 etc/firmware/cpp_firmware_v1_8_0.fw
 
+# Peripheral manager
+bin/pm-proxy
+bin/pm-service
+vendor/lib64/libperipheral_client.so
+vendor/lib/libperipheral_client.so
 
 # CNE
 bin/cnd
