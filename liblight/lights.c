@@ -281,11 +281,13 @@ set_light_buttons(struct light_device_t *dev,
        // write_int(LED_MODE, 0);
 
         write_int(LED_OUTN, 16);
-        write_str(LED_FADE, "3 0 4");
-        write_str(LED_GRADE, "0 255");
-        write_int(LED_MODE, AW_FADE_AUTO);
+        write_str(LED_FADE, "1 0 0");
+        write_str(LED_GRADE, "10 255");
+        write_int(LED_MODE, AW_CONST_ON);
+
         btn_state = 0;
     } else if(brightness != 0 && !btn_state) {                // turn buttons on
+
         write_int(LED_OUTN, 16);
         write_str(LED_FADE, "1 0 0");
         write_str(LED_GRADE, "10 255");
@@ -425,7 +427,7 @@ struct hw_module_t HAL_MODULE_INFO_SYM = {
     .version_major = 1,
     .version_minor = 0,
     .id = LIGHTS_HARDWARE_MODULE_ID,
-    .name = "NX529J Lights Module v1.0",
+    .name = "NX529J Lights Module v1.1",
     .author = "siyang",
     .methods = &lights_module_methods,
 };

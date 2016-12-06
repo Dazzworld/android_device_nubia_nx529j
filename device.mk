@@ -112,8 +112,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/mixer_paths_wcd9335.xml:system/etc/mixer_paths_wcd9335.xml
 
 # Browser
-PRODUCT_PACKAGES += \
-    Gello
+#PRODUCT_PACKAGES += \
+#    Gello
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/etc/hcidump.sh:system/etc/hcidump.sh \
@@ -336,8 +336,10 @@ PRODUCT_PACKAGES += \
 #    camera.msm8952 \
 #    libmm-qcamera
 
+#Lib Shims
 PRODUCT_PACKAGES += \
-    libnubia_symbols
+    libshim_ril \
+	
 
 # Wifi
 PRODUCT_PACKAGES += \
