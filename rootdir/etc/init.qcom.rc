@@ -38,21 +38,12 @@ on early-init
 
 on init
 
-    export LD_SHIM_LIBS "/system/bin/ATFWD-daemon|libshim_ril.so:/system/vendor/lib64/libcne.so|libshim_ril.so:/system/vendor/lib64/libdpmframework.so|libshim_ril.so"
-
     export LD_PRELOAD "libboringssl-compat.so"
 
-    start qfintverify
+    export LD_SHIM_LIBS "/system/bin/ATFWD-daemon|libshim_ril.so:/system/vendor/lib64/libcne.so|libshim_ril.so:/system/vendor/lib64/libdpmframework.so|libshim_ril.so:/system/vendor/lib/libmmcamera2_sensor_modules.so|libshim_camera.so:/system/lib/hw/camera.vendor.msm8952.so|libshim_camera.so:/system/lib64/libnubiajpeg.so|libshim_camera_app.so:/system/lib/libnubiajpeg.so|libshim_camera_app.so:/system/lib64/libAlgorithm.so|libshim_camera_app.so"
+
     # Set permissions for persist partition
     mkdir /persist 0771 system system
-
-    mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
-    mkdir /mnt/media_rw/usba 0700 media_rw media_rw
-    mkdir /storage/sdcard1 0700 root root
-    mkdir /storage/usba 0700 root root
-    export EXTERNAL_STORAGE /sdcard
-    export SECONDARY_STORAGE /storage/sdcard1
-    export OTG_STORAGE /storage/usba
 
     # Support legacy paths
     symlink /sdcard /mnt/sdcard
@@ -983,11 +974,6 @@ service profiler_daemon /system/bin/profiler_daemon
     user root
     group root
     disabled
-
-# Binding fuse mount point to /storage/emulated/legacy
-on property:init.svc.sdcard=running
-    wait /mnt/shell/emulated/0
-    mount none /mnt/shell/emulated/0 /storage/emulated/legacy bind
 
 service hcidump /system/bin/sh /system/etc/hcidump.sh
     user bluetooth

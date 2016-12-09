@@ -45,6 +45,11 @@ else
     soc_hwver=`cat /sys/devices/system/soc/soc0/platform_version` 2> /dev/null
 fi
 
+if [ -f /sys/class/graphics/fb0/virtual_size ]; then
+    res=`cat /sys/class/graphics/fb0/virtual_size` 2> /dev/null
+    fb_width=${res%,*}
+fi
+
 log -t BOOT -p i "MSM target '$1', SoC '$soc_hwplatform', HwID '$soc_hwid', SoC ver '$soc_hwver'"
 
 target=`getprop ro.board.platform`
@@ -198,29 +203,76 @@ esac
 # HDMI can be fb1 or fb2
 # Loop through the sysfs nodes and determine
 # the HDMI(dtv panel)
+
+function set_perms() {
+    #Usage set_perms <filename> <ownership> <permission>
+    chown -h $2 $1
+    chmod $3 $1
+}
+
+function setHDMIPermission() {
+   file=/sys/class/graphics/fb$1
+   dev_file=/dev/graphics/fb$1
+   dev_gfx_hdmi=/devices/virtual/switch/hdmi
+
+   set_perms $file/hpd system.graphics 0664
+   set_perms $file/res_info system.graphics 0664
+   set_perms $file/vendor_name system.graphics 0664
+   set_perms $file/product_description system.graphics 0664
+   set_perms $file/video_mode system.graphics 0664
+   set_perms $file/format_3d system.graphics 0664
+   set_perms $file/s3d_mode system.graphics 0664
+   set_perms $file/cec/enable system.graphics 0664
+   set_perms $file/cec/logical_addr system.graphics 0664
+   set_perms $file/cec/rd_msg system.graphics 0664
+   set_perms $file/pa system.graphics 0664
+   set_perms $file/cec/wr_msg system.graphics 0600
+   set_perms $file/hdcp/tp system.graphics 0664
+   ln -s $dev_file $dev_gfx_hdmi
+}
+
+# check for HDMI connection
 for fb_cnt in 0 1 2
 do
-file=/sys/class/graphics/fb$fb_cnt
-dev_file=/dev/graphics/fb$fb_cnt
-  if [ -d "$file" ]
-  then
-    value=`cat $file/msm_fb_type`
-    case "$value" in
-            "dtv panel")
-        chown -h system.graphics $file/hpd
-        chown -h system.system $file/hdcp/tp
-        chown -h system.graphics $file/vendor_name
-        chown -h system.graphics $file/product_description
-        chmod -h 0664 $file/hpd
-        chmod -h 0664 $file/hdcp/tp
-        chmod -h 0664 $file/vendor_name
-        chmod -h 0664 $file/product_description
-        chmod -h 0664 $file/video_mode
-        chmod -h 0664 $file/format_3d
-        # create symbolic link
-        ln -s $dev_file /dev/graphics/hdmi
-        # Change owner and group for media server and surface flinger
-        chown -h system.system $file/format_3d;;
-    esac
-  fi
+    file=/sys/class/graphics/fb$fb_cnt/msm_fb_panel_info
+    if [ -f "$file" ]
+    then
+      cat $file | while read line; do
+        case "$line" in
+            *"is_pluggable"*)
+             case "$line" in
+                  *"1"*)
+                  setHDMIPermission $fb_cnt
+             esac
+        esac
+      done
+    fi
 done
+
+
+
+# check for mdp caps
+setprop debug.gralloc.gfx_ubwc_disable 1
+file=/sys/class/graphics/fb0/mdp/caps
+if [ -f "$file" ]
+then
+    cat $file | while read line; do
+      case "$line" in
+                *"ubwc"*)
+                setprop debug.gralloc.enable_fb_ubwc 1
+                setprop debug.gralloc.gfx_ubwc_disable 0
+            esac
+    done
+fi
+
+file=/sys/class/graphics/fb0
+if [ -d "$file" ]
+then
+        set_perms $file/idle_time system.graphics 0664
+        set_perms $file/dynamic_fps system.graphics 0664
+        set_perms $file/dyn_pu system.graphics 0664
+        set_perms $file/modes system.graphics 0664
+        set_perms $file/mode system.graphics 0664
+        set_perms $file/msm_cmd_autorefresh_en system.graphics 0664
+fi
+

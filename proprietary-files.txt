@@ -83,6 +83,7 @@ lib/libFNVfbEngineHAL.so
 lib/libnubia_effect.so
 lib/libnubiajpeg_temp.so
 lib64/libnubiajpeg_temp.so
+lib/libImageAlogrithm.so
 lib64/libImageAlogrithm.so
 lib64/libFNVfbEngineLib.so
 lib/libIndependenceUtil.so
@@ -1161,14 +1162,11 @@ vendor/lib/libomx_amrenc_sharedlibrary.so
 vendor/lib/libomx_amrdec_sharedlibrary.so
 vendor/lib/libnative_audio_latency_jni.so
 vendor/lib64/libSubSystemShutdown.so
-lib64/libmm-omxcore.so
 lib64/libOmxAacEnc.so
 lib64/libOmxAmrEnc.so
 lib64/libOmxEvrcEnc.so
 lib64/libOmxQcelp13Enc.so
 lib64/libOmxSwVencHevc.so
-
-lib/libmm-omxcore.so
 lib/libOmxAacEnc.so
 lib/libOmxAmrEnc.so
 lib/libOmxEvrcEnc.so
@@ -1177,7 +1175,6 @@ lib/libOmxSwVencHevc.so
 vendor/lib/libscale.so
 vendor/lib64/libpvr.so
 vendor/lib/libpvr.so
-vendor/bin/chamomile_provision
 bin/subsystem_ramdump
 vendor/lib/libwvm.so
 bin/ATFWD-daemon

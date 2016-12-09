@@ -67,6 +67,7 @@ PRODUCT_COPY_FILES += \
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0 \
     ro.adb.secure=0
+
 # ANT+
 PRODUCT_PACKAGES += \
     AntHalService \
@@ -235,9 +236,7 @@ PRODUCT_COPY_FILES += \
 
 # OMX
 PRODUCT_PACKAGES += \
-    libdivxdrmdecrypt \
     libc2dcolorconvert \
-    libdashplayer \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxCore \
@@ -246,7 +245,6 @@ PRODUCT_PACKAGES += \
     libOmxSwVencHevc \
     libOmxVdec \
     libOmxVenc \
-    libextmedia_jni \
     libstagefrighthw
 
 # Power
@@ -307,8 +305,8 @@ PRODUCT_PACKAGES += \
     sensors.msm8952
 
 # Snapdragon Camera
-#PRODUCT_PACKAGES += \
-#    Snap
+PRODUCT_PACKAGES += \
+    Snap
 
 # Sound trigger
 PRODUCT_COPY_FILES += \
@@ -326,14 +324,16 @@ PRODUCT_PACKAGES += \
     wcnss_service
 
 # Camera
-#PRODUCT_PACKAGES += \
-#    camera.msm8952 \
-#    libmm-qcamera
+PRODUCT_PACKAGES += \
+	NubiaCamera \
+	libmm-omxcore \
+    camera.msm8952
 
 #Lib Shims
 PRODUCT_PACKAGES += \
     libshim_ril \
-	
+	libshim_camera_app \
+	libshim_camera
 
 # Wifi
 PRODUCT_PACKAGES += \

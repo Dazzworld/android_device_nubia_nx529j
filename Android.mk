@@ -52,10 +52,10 @@ $(shell mkdir -p $(TARGET_OUT)/etc/firmware/wlan/prima; \
                 $(TARGET_OUT)/etc/firmware/wlan/prima/WCNSS_wlan_dictionary.dat)
 
 #Create symbolic links
-$(shell mkdir -p $(TARGET_OUT)/lib/modules; \
-        rm $(TARGET_OUT)/lib/modules/wlan.ko; \
-        ln -sf /system/lib/modules/pronto/pronto_wlan.ko \
-        $(TARGET_OUT)/lib/modules/wlan.ko)
+#$(shell mkdir -p $(TARGET_OUT)/lib/modules; \
+#        rm $(TARGET_OUT)/lib/modules/wlan.ko; \
+#        ln -sf /system/lib/modules/pronto/pronto_wlan.ko \
+#        $(TARGET_OUT)/lib/modules/wlan.ko)
 
 #Create symbolic links
 $(shell mkdir -p $(TARGET_OUT)/vendor/lib; \
