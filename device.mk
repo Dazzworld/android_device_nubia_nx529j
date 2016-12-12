@@ -164,9 +164,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     org.codeaurora.camera
 
-# Fingerprint
-PRODUCT_PACKAGES += \
-    fingerprintd
 
 # FM
 PRODUCT_PACKAGES += \
@@ -283,7 +280,6 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.nubia.extend.usb.rc \
     init.nubia.usb.rc \
-    init.project.rc \
     ueventd.qcom.rc
 
 PRODUCT_PACKAGES += \
@@ -292,7 +288,6 @@ PRODUCT_PACKAGES += \
     mdtp_fota \
     poweroffcharge \
     productionmode \
-    qfintverify \
     qcrypto_module.ko \
     qdrbg_module.ko
 
@@ -334,6 +329,13 @@ PRODUCT_PACKAGES += \
     libshim_ril \
 	libshim_camera_app \
 	libshim_camera
+
+# Wechat Fingerprint Payment
+PRODUCT_PACKAGES += \
+    soter
+
+PRODUCT_BOOT_JARS += \
+    soter
 
 # Wifi
 PRODUCT_PACKAGES += \

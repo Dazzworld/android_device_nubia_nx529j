@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Nubia设置</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="fp_name">指纹管理</string>
+    <string name="modem_name">基带管理</string>
+    <string name="about_name">关于</string>
+    <string name="app_summary">NubiaSettings For Z11mini</string>
+    <string name="author_summary">Author:SIYANG</string>
+    <string name="url_summary">Url:http://bbs.zhiyoo.com</string>
+    <string name="zfb_pay">支付宝捐赠</string>
+    <string name="action_settings">Settings</string>
+    <string name="modem_getconfig">获取卡槽modem配置</string>
+    <string name="modem_activeconfig">激活卡一配置</string>
+    <string name="modem_deactiveconfig">注销卡一配置</string>
+    <string name="modem_selectconfig">选择卡一配置</string>
+    <string name="card_1">1</string>
+    <string name="card_2">2</string>
+    <string name="card_1name">卡槽1</string>
+    <string name="card_2name">卡槽2</string>
+    <string name="card">卡槽 %1$d</string>
+    <string name="open_let_sub_select_mode">打开主卡选择模式</string>
+    <string name="get_config_err">获取配置失败</string>
+    <string name="modem_summary">说明(一种配置只支持一种运营商):\n
+        Volte_OpenMkt-Commercial-CMCC支持中国移动4G及Volte\n
+        OpenMkt-Commercial-CU支持中国联通4G\n
+        OpenMkt-Commercial-CT支持中国电信4G\n
+        请根据自己的的情况酌情选择!</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="fingerprints_settings">指纹识别</string>
+    <string name="mobile_unlock">手机解锁</string>
+    <string name="fingerprints_manager_note">指纹功能可用于</string>
+    <string name="fingerprints_manager">指纹管理</string>
+    <string name="fingerprints_add">添加指纹</string>
+    <string name="fingerprints_name">修改指纹名称</string>
+    <string name="fingerprints_remove">删除该组指纹</string>
+    <string name="fingerprint">指纹%1$d</string>
+    <string name="fingerprint_maxnum">最多添加%1$d组指纹</string>
+    <string name="fingerprint_unlock_tip">如果切换至滑动解锁，将关闭指纹快速解锁功能，是否继续？</string>
+    <string name="fingerprints_back_pressed">再按一次退出指纹录制</string>
+    <string name="fingerprints_bind_failed">指纹服务不可用，请退出重试</string>
+    <string name="mobile_wakeup">黑屏唤醒屏幕</string>
+    <string name="app_lock_title">应用加密</string>
+    <string name="finger_photo">拍照</string>
+    <string name="finger_photo_desc">相机界面任意手指触摸指纹键拍照</string>
+    <string name="fingerprint_applock_wait">未启用指纹加密</string>
+    <string name="fingerprint_applock_ready">已启用指纹加密</string>
+    <string name="fingerprint_enroll_first">需要先录入指纹</string>
+    <string name="super_snap_title">超级截图</string>
+    <string name="supersnap_longpress">长按</string>
+    <string name="supersnap_longpress_introduction">%s电源键+音量键，启动超级截图进行自由截图、长截图、录屏。</string>
+    <string name="fingerprint_supersnap_longpress_introduction">%s电源键+音量键|长按指纹键，启动超级截图进行自由截图、长截图、录屏。</string>
+    <string name="supersnap_quickpress">短按</string>
+    <string name="supersnap_quickpress_introduction">%s电源键+音量键可进行快速截图。</string>
+    <string name="fingerprint_super_snap_title">指纹键截图</string>
+    <string name="fingerprint_super_snap_summary">长按指纹键启动超级截图</string>
+    <string name="fingerprint_super_snap_opened">开启</string>
+    <string name="fingerprint_super_snap_closed">关闭</string>
+    <string name="turn_on_fingerprint_super_snap">开启指纹截图</string>
+    <string name="fingerprint_super_snap_introduction1">长按指纹键进行自由截图，直接松手快速截图。</string>
+    <string name="fingerprint_super_snap_introduction2">指纹上滑或下滑动进行长截图。</string>
+    <string name="screen_recording_quality">录屏质量</string>
+    <string name="super_snap_introduction">使用帮助</string>
+    <string name="fingerprint_chooselock_title">备用解锁方式</string>
+    <string name="lockpassword_choose_your_password_header">"选择您的密码"</string>
+    <string name="lockpattern_need_to_unlock_wrong_footer" />
+    <string name="lockpattern_need_to_unlock_footer" />
+    <string name="lockpassword_choose_your_pattern_header" msgid="6949761069941694050">"选择您的图案"</string>
+    <string name="lockpassword_choose_your_pin_header" msgid="7598849519816138302">"选择PIN码"</string>
+    <string name="lockpassword_confirm_your_password_header" msgid="6308478184889846633">"确认您的密码"</string>
+    <string name="lockpassword_confirm_your_pattern_header" msgid="7543433733032330821">"确认您的图案"</string>
+    <string name="lockpassword_confirm_your_pin_header" msgid="49038294648213197">"确认PIN码"</string>
+    <string name="lockpassword_confirm_passwords_dont_match" msgid="6850677112663979120">"密码不匹配"</string>
+    <string name="lockpassword_confirm_pins_dont_match" msgid="4757532830594400147">"PIN码不匹配！"</string>
+    <string name="lockpassword_choose_lock_generic_header" msgid="3811438094903786145">"解锁方式选择"</string>
+    <string name="lockpassword_password_set_toast" msgid="4875050283108629383">"密码已设置"</string>
+    <string name="lockpassword_pin_set_toast" msgid="6011826444725291475">"已设置PIN码"</string>
+    <string name="lockpassword_pattern_set_toast" msgid="6867259621331406236">"图案已设置"</string>
+    <string name="lock_settings_title" msgid="335025124489630932">"屏幕安全保护"</string>
+    <string name="lockpattern_change_lock_pattern_label" msgid="5679630792003440352">"更改解锁图案"</string>
+    <string name="lockpattern_change_lock_pin_label" msgid="266707138486731661">"更改解锁PIN码"</string>
+    <string name="lockpattern_need_to_unlock" msgid="757935356911054465">"确认之前所设的图案"</string>
+    <string name="lockpattern_need_to_unlock_wrong" msgid="4694973540770105678">"请重试："</string>
+    <string name="lockpattern_recording_intro_header" msgid="308287052221942814">"绘制解锁图案"</string>
+    <string name="lockpattern_recording_intro_footer" msgid="1118579101409152113">"按 MENU 获得帮助。"</string>
+    <string name="lockpattern_recording_inprogress" msgid="6667844062721656773">"完成后松开手指"</string>
+    <string name="lockpattern_recording_incorrect_too_short" msgid="1348234155120957561">"至少需连接%d个点，请重试。"</string>
+    <string name="lockpattern_pattern_entered_header" msgid="4316818983675591604">"图案已记录"</string>
+    <string name="lockpattern_need_to_confirm" msgid="8054853451639221265">"再次绘制图案进行确认"</string>
+    <string name="lockpattern_pattern_confirmed_header" msgid="8455614172231880211">"您的新解锁图案"</string>
+    <string name="lockpattern_confirm_button_text" msgid="1128204343957002841">"确认"</string>
+    <string name="lockpattern_restart_button_text" msgid="3337574403350953926">"重新绘制"</string>
+    <string name="lockpattern_retry_button_text" msgid="1949847413862309134">"重试"</string>
+    <string name="lockpattern_continue_button_text" msgid="4723771754714471410">"继续"</string>
+    <string name="lockpattern_settings_title" msgid="3207750489460466680">"解锁图案"</string>
+    <string name="lockpattern_settings_enable_title" msgid="6920616873671115281">"需要解锁图案"</string>
+    <string name="lockpattern_settings_enable_summary" msgid="1165707416664252167">"必须绘制图案才能解锁屏幕"</string>
+    <string name="lockpattern_settings_enable_visible_pattern_title" msgid="2615606088906120711">"显示图案"</string>
+    <string name="lockpattern_settings_enable_tactile_feedback_title" msgid="8898518337442601027">"触摸时振动"</string>
+    <string name="lockpattern_settings_enable_power_button_instantly_locks" msgid="5735444062633666327">"电源按钮即时锁定"</string>
+    <string name="lockpattern_settings_power_button_instantly_locks_summary" msgid="8196258755143711694">"%1$s让屏幕保持解锁状态时除外"</string>
+    <string name="lockpattern_settings_choose_lock_pattern" msgid="1652352830005653447">"设置解锁图案"</string>
+    <string name="lockpattern_settings_change_lock_pattern" msgid="1123908306116495545">"更改解锁图案"</string>
+    <string name="lockpattern_settings_help_how_to_record" msgid="2614673439060830433">"如何绘制解锁图案"</string>
+    <string name="lockpattern_too_many_failed_confirmation_attempts_header" msgid="819903817323783498">"错误的尝试次数过多！"</string>
+    <string name="lockpattern_too_many_failed_confirmation_attempts_footer" msgid="6759029360597122873">"%d秒后重试。"</string>
+
+    <plurals name="lockpassword_password_requires_letters">
+        <item msgid="3063853802158131458" quantity="one">"密码必须包含至少 1 个字母。"</item>
+        <item msgid="8186027808415585970" quantity="other">"密码必须包含至少 %d 个字母。"</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_lowercase">
+        <item msgid="5583986519662091001" quantity="one">"密码必须包含至少 1 个小写字母。"</item>
+        <item msgid="2693910942679679225" quantity="other">"密码必须包含至少 %d 个小写字母。"</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_uppercase">
+        <item msgid="2611909966725502768" quantity="one">"密码必须包含至少 1 个大写字母。"</item>
+        <item msgid="3030801209112209245" quantity="other">"密码必须包含至少 %d 个大写字母。"</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_numeric">
+        <item msgid="3820355568839621231" quantity="one">"密码必须包含至少 1 个数字。"</item>
+        <item msgid="4703982391407595924" quantity="other">"密码必须包含至少 %d 个数字。"</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_symbols">
+        <item msgid="8456579939292408631" quantity="one">"密码必须包含至少 1 个特殊符号。"</item>
+        <item msgid="1221290525051187757" quantity="other">"密码必须包含至少 %d 个特殊符号。"</item>
+    </plurals>
+    <plurals name="lockpassword_password_requires_nonletter">
+        <item msgid="4594051152085925921" quantity="one">"密码至少应包含1个非字母字符。"</item>
+        <item msgid="3952508584649046404" quantity="other">"密码至少应包含%d个非字母字符。"</item>
+    </plurals>
+
+    <string name="lockpassword_password_recently_used" msgid="6098087796784262081">"设备管理器不允许使用最近用过的密码。"</string>
+    <string name="lockpassword_pin_no_sequential_digits" msgid="6830610582179569631">"禁止使用以升序、降序或重复序列进行排列的一串数字"</string>
+    <string name="lockpassword_ok_label" msgid="313822574062553672">"确定"</string>
+    <string name="lockpassword_cancel_label" msgid="8818529276331121899">"取消"</string>
+    <string name="lockpattern_tutorial_cancel_label" msgid="6431583477570493261">"取消"</string>
+    <string name="lockpattern_tutorial_continue_label" msgid="3559793618653400434">"下一步"</string>
+    <string name="fingerprint_set_screenlock_renote">已有指纹数据，要删除还是要保留这些指纹</string>
+    <string name="fingerprint_set_screenlock_renote_retain">保留</string>
+    <string name="disable_network_check">关闭网络状态检查</string>
+    <string name="disable_network_check_summary">不推荐</string>
+	<string name="replace_network_check_server">更换网络状态验证服务器</string>
+</resources>

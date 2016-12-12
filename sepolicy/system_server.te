@@ -1,0 +1,2 @@
+# Perform binder IPC to gx_fpd
+binder_call(system_server, gx_fpd);
