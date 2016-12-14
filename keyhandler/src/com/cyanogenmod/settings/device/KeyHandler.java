@@ -38,6 +38,8 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 
+import cyanogenmod.providers.CMSettings;
+
 import com.android.internal.os.DeviceKeyHandler;
 import com.android.internal.widget.LockPatternUtils;
 
@@ -73,9 +75,9 @@ public class KeyHandler implements DeviceKeyHandler {
 
         final Resources resources = mContext.getResources();
         mProximityTimeOut = resources.getInteger(
-                com.android.internal.R.integer.config_proximityCheckTimeout);
+                org.cyanogenmod.platform.internal.R.integer.config_proximityCheckTimeout);
         mProximityWakeSupported = resources.getBoolean(
-                com.android.internal.R.bool.config_proximityCheckOnWake);
+                org.cyanogenmod.platform.internal.R.bool.config_proximityCheckOnWake);
 
         if (mProximityWakeSupported) {
             mSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
@@ -113,14 +115,14 @@ public class KeyHandler implements DeviceKeyHandler {
         boolean isKeySupported = (event.getScanCode() == KEY_DOUBLE_TAP);
         if (isKeySupported) {
             if (event.getScanCode() == KEY_DOUBLE_TAP && !mPowerManager.isScreenOn()) {
-                mPowerManager.wakeUpWithProximityCheck(SystemClock.uptimeMillis());
+                mPowerManager.wakeUpWithProximityCheck(SystemClock.uptimeMillis(), "wakeup-gesture-proximity");
                 return true;
             }
             Message msg = getMessageForKeyEvent(event);
             boolean defaultProximity = mContext.getResources().getBoolean(
-                com.android.internal.R.bool.config_proximityCheckOnWakeEnabledByDefault);
-            boolean proximityWakeCheckEnabled = Settings.System.getInt(mContext.getContentResolver(),
-                    Settings.System.PROXIMITY_ON_WAKE, defaultProximity ? 1 : 0) == 1;
+                org.cyanogenmod.platform.internal.R.bool.config_proximityCheckOnWakeEnabledByDefault);
+            boolean proximityWakeCheckEnabled = CMSettings.System.getInt(mContext.getContentResolver(),
+                    CMSettings.System.PROXIMITY_ON_WAKE, defaultProximity ? 1 : 0) == 1;
             if (mProximityWakeSupported && proximityWakeCheckEnabled && mProximitySensor != null) {
                 mHandler.sendMessageDelayed(msg, mProximityTimeOut);
                 processEvent(event);
