@@ -13,6 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+#USE_CLANG_PLATFORM_BUILD := true
 
 DEVICE_PATH := device/nubia/NX529J
 

@@ -204,6 +204,11 @@ on boot
 	chmod 0644 system system /sys/class/light/light/calibrate
 	chown 0644 system system /sys/class/light/light/chip_name
 	chown 0644 system system /sys/class/light/light/light_value
+
+	chown system system /persist/sensors/rgb_color_cfg
+	chown system system /persist/sensors/rgbc_cfg
+	chmod 0644 /persist/sensors/rgb_color_cfg
+	chmod 0644 /prtsist/sensors/rgbc_cfg
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/state
@@ -1215,6 +1220,7 @@ on property:persist.sys.image.cabc=h
 service fingerprintd /system/bin/fingerprintd   
     class late_start 
     user system
+    group system
 
 service gx_fpd /system/bin/gx_fpd
     class late_start

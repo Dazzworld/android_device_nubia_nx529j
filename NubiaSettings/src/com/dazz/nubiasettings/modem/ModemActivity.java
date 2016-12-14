@@ -162,15 +162,15 @@ public class ModemActivity extends Activity implements OnClickListener {
 
 	protected void updateConfig(int slot, String selectedConfig) {
 		String realConfig = ModemConfig.mOperatorMBN.get(selectedConfig);
-		result = mQcRilHook.qcRilDeactivateConfigsBySub(slot);
-		logd("注销配置!slot="+slot+",result="+result);
+		//result = mQcRilHook.qcRilDeactivateConfigsBySub(slot);
+		//logd("注销配置!slot="+slot+",result="+result);
 		result =mQcRilHook.qcRilSelectConfig(realConfig, slot+1);
 		logd("更新配置!slot="+slot+",result="+result);
 		
 		handler.postDelayed(new Runnable() {
 			public void run() {
 				progressDialog.dismiss();
-				toast(result?"更新成功":"更新失败");
+				toast(result?"更新成功,请重启手机":"更新失败");
 				loadConfig();
 			}
 		}, 1000);

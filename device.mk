@@ -318,10 +318,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     wcnss_service
 
+#PRODUCT_PACKAGES += \
+#    fingerprintd
+
 # Camera
 PRODUCT_PACKAGES += \
 	NubiaCamera \
 	libmm-omxcore \
+	NubiaSettings \
     camera.msm8952
 
 #Lib Shims
@@ -331,11 +335,20 @@ PRODUCT_PACKAGES += \
 	libshim_camera
 
 # Wechat Fingerprint Payment
-PRODUCT_PACKAGES += \
-    soter
+#PRODUCT_PACKAGES += \
+#    soter
 
-PRODUCT_BOOT_JARS += \
-    soter
+#PRODUCT_BOOT_JARS += \
+#    soter
+
+# KeyHandler
+PRODUCT_PACKAGES += \
+    com.cyanogenmod.keyhandler
+
+PRODUCT_SYSTEM_SERVER_JARS += com.cyanogenmod.keyhandler
+
+# never dexopt the keyhandler
+$(call add-product-dex-preopt-module-config,com.cyanogenmod.keyhandler,disable)
 
 # Wifi
 PRODUCT_PACKAGES += \

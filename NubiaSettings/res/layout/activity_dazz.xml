@@ -5,32 +5,6 @@
     android:orientation="vertical" >
 
     <LinearLayout
-        android:id="@+id/fingerprint_layout"
-        android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
-        android:background="@color/white"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingEnd="@dimen/activity_horizontal_margin"
-        android:paddingStart="@dimen/activity_horizontal_margin" >
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="centerInside"
-            android:src="@drawable/settings_header_fingerprints_normal" />
-
-        <TextView
-            style="@android:style/TextAppearance.Material.Menu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:text="@string/fp_name" />
-    </LinearLayout>
-
-    <View style="@style/image_segment" />
-
-    <LinearLayout
         android:id="@+id/modem_layout"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"

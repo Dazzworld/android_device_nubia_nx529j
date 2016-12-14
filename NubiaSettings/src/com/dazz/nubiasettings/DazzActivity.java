@@ -26,7 +26,6 @@ public class DazzActivity extends Activity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_dazz);
-		findViewById(R.id.fingerprint_layout).setOnClickListener(this);
 		findViewById(R.id.modem_layout).setOnClickListener(this);
 		findViewById(R.id.about_layout).setOnClickListener(this);
 		mNetCheckSer = (TextView) findViewById(R.id.net_checkser);
@@ -63,6 +62,7 @@ public class DazzActivity extends Activity implements OnClickListener {
 					return;
 				}else{
 					Settings.Global.putString(getContentResolver(), "captive_portal_server", et.getText().toString());
+					initState();
 				}
 				dialog.dismiss();
 			}
@@ -93,8 +93,6 @@ public class DazzActivity extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		Intent i = null;
 		switch (v.getId()) {
-		case R.id.fingerprint_layout:
-			break;
 		case R.id.modem_layout:
 			i = new Intent(this, ModemActivity.class);
 			break;
