@@ -38,7 +38,7 @@ on init
 
     export LD_PRELOAD "libboringssl-compat.so"
 
-    export LD_SHIM_LIBS "/system/vendor/lib64/libcne.so|libshim_ril.so:/system/vendor/lib64/libdpmframework.so|libshim_ril.so:/system/vendor/lib/libmmcamera2_sensor_modules.so|libshim_camera.so:/system/lib/hw/camera.vendor.msm8952.so|libshim_camera.so:/system/lib64/libnubiajpeg.so|libshim_camera_app.so:/system/lib/libnubiajpeg.so|libshim_camera_app.so:/system/lib64/libAlgorithm.so|libshim_camera_app.so"
+    export LD_SHIM_LIBS "/system/vendor/lib/libmmcamera2_sensor_modules.so|libshim_camera.so:/system/lib/hw/camera.vendor.msm8952.so|libshim_camera.so:/system/lib64/libnubiajpeg.so|libshim_camera_app.so:/system/lib/libnubiajpeg.so|libshim_camera_app.so:/system/lib64/libAlgorithm.so|libshim_camera_app.so"
 
     # Set permissions for persist partition
     mkdir /persist 0771 system system

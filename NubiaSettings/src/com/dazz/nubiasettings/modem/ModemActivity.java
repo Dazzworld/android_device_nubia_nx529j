@@ -2,6 +2,7 @@ package com.dazz.nubiasettings.modem;
 
 import java.util.ArrayList;
 
+import com.dazz.nubiasettings.DazzActivity;
 import com.dazz.nubiasettings.R;
 import com.qualcomm.qcrilhook.QcRilHook;
 import com.qualcomm.qcrilhook.QcRilHookCallback;
@@ -9,9 +10,12 @@ import com.qualcomm.qcrilhook.QcRilHookCallback;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.PowerManager;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -162,18 +166,42 @@ public class ModemActivity extends Activity implements OnClickListener {
 
 	protected void updateConfig(int slot, String selectedConfig) {
 		String realConfig = ModemConfig.mOperatorMBN.get(selectedConfig);
-		//result = mQcRilHook.qcRilDeactivateConfigsBySub(slot);
-		//logd("注销配置!slot="+slot+",result="+result);
 		result =mQcRilHook.qcRilSelectConfig(realConfig, slot+1);
 		logd("更新配置!slot="+slot+",result="+result);
 		
 		handler.postDelayed(new Runnable() {
 			public void run() {
 				progressDialog.dismiss();
-				toast(result?"更新成功,请重启手机":"更新失败");
-				loadConfig();
+				if (result) {
+					showRebootDiaog();
+				}else{
+					toast("更新失败");
+				}
+				//loadConfig();
 			}
 		}, 1000);
+		
+	}
+	
+	public void showRebootDiaog(){
+		AlertDialog.Builder builder = new AlertDialog.Builder(this)
+		.setMessage("更新成功,建议重启")
+		.setPositiveButton("重启", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				reboot();
+				dialog.dismiss();
+			}
+		})
+		.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.dismiss();
+			}
+		});
+		builder.show();
 		
 	}
 
@@ -183,6 +211,12 @@ public class ModemActivity extends Activity implements OnClickListener {
 		progressDialog.setMessage(msg);
 		progressDialog.setCancelable(false);
 		return progressDialog;
+	}
+	
+
+	public void reboot(){
+		PowerManager pManager=(PowerManager) getSystemService(Context.POWER_SERVICE);  
+		pManager.reboot("");  
 	}
 	
 	public void toast(String msg){

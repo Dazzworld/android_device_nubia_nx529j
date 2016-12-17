@@ -102,10 +102,6 @@ lib64/libBuffer.so
 lib/libBurstProcessJni.so
 lib64/libBurstProcessJni.so
 lib64/libnubia_delay_recorder.so
-lib64/libavcodec.so
-lib64/libavfilter.so
-lib64/libavformat.so
-lib64/libavutil.so
 lib64/libpanoramahelper.so
 lib64/libpanoramahelper.so
 lib/libproductinfo.so
@@ -702,50 +698,63 @@ bin/pm-service
 vendor/lib64/libperipheral_client.so
 vendor/lib/libperipheral_client.so
 
+# Network
+-priv-app/QtiTetherService/QtiTetherService.apk
+vendor/lib64/libconnctrl.so
+vendor/lib64/libQtiTether.so
+vendor/lib/libconnctrl.so
+vendor/lib/libQtiTether.so
+
 # CNE
 bin/cnd
-etc/cne/SwimConfig.xml
 etc/cne/andsfCne.xml
+etc/cne/SwimConfig.xml
 etc/permissions/cneapiclient.xml
 etc/permissions/com.quicinc.cne.xml
-etc/permissions/com.quicinc.wbc.xml
-#-framework/cneapiclient.jar
-#-framework/com.quicinc.cne.jar
-#-framework/com.quicinc.wbc.jar
-#-framework/com.quicinc.wbcservice.jar
-#-priv-app/CNEService/CNEService.apk
-vendor/lib/libNimsWrap.so
-vendor/lib/libcne.so
-vendor/lib/libcneapiclient.so
-vendor/lib/libcneconn.so
-vendor/lib/libcneqmiutils.so
-vendor/lib/libvendorconn.so
-vendor/lib/libwqe.so
-vendor/lib/libxml.so
-vendor/lib64/libNimsWrap.so
+etc/permissions/ConnectivityExt.xml
+-framework/cneapiclient.jar
+-framework/com.quicinc.cne.jar
+-framework/ConnectivityExt.jar
+-priv-app/CNEService/CNEService.apk
 vendor/lib64/libcne.so
 vendor/lib64/libcneapiclient.so
 vendor/lib64/libcneconn.so
 vendor/lib64/libcneqmiutils.so
+vendor/lib64/libNimsWrap.so
 vendor/lib64/libvendorconn.so
+vendor/lib64/libwms.so
 vendor/lib64/libwqe.so
 vendor/lib64/libxml.so
+vendor/lib/libxml.so
+vendor/lib/libcne.so
+vendor/lib/libcneapiclient.so
+vendor/lib/libcneconn.so
+vendor/lib/libcneqmiutils.so
+vendor/lib/libNimsWrap.so
+vendor/lib/libvendorconn.so
+vendor/lib/libwms.so
+vendor/lib/libwqe.so
 
 # DPM
 bin/dpmd
 etc/dpm/dpm.conf
 etc/dpm/nsrm/NsrmConfiguration.xml
+etc/permissions/com.qti.dpmframework.xml
 etc/permissions/dpmapi.xml
-#-framework/com.qti.dpmframework.jar
-#-framework/dpmapi.jar
-vendor/lib/libdpmctmgr.so
-vendor/lib/libdpmfdmgr.so
-vendor/lib/libdpmframework.so
-vendor/lib/libdpmnsrm.so
+-framework/com.qti.dpmframework.jar
+-framework/dpmapi.jar
+-framework/tcmclient.jar
 vendor/lib64/libdpmctmgr.so
 vendor/lib64/libdpmfdmgr.so
 vendor/lib64/libdpmframework.so
 vendor/lib64/libdpmnsrm.so
+vendor/lib64/libdpmtcm.so
+vendor/lib/libdpmctmgr.so
+vendor/lib/libdpmfdmgr.so
+vendor/lib/libdpmframework.so
+vendor/lib/libdpmnsrm.so
+vendor/lib/libdpmtcm.so
+
 
 # DRM
 bin/qseecomd
@@ -769,32 +778,16 @@ etc/firmware/leia_pfp_470.fw
 etc/firmware/leia_pm4_470.fw
 
 # GPS
+-lib64/libloc_api_v02.so
+-lib64/libloc_ds_api.so
+-lib/libloc_api_v02.so
+-lib/libloc_ds_api.so
 bin/loc_launcher
 etc/permissions/com.qti.location.sdk.xml
 etc/permissions/com.qualcomm.location.xml
-etc/permissions/com.qualcomm.location.vzw_library.xml
--framework/com.qti.location.sdk.jar
-framework/com.qualcomm.location.vzw_library.jar
--lib/libloc_api_v02.so
--lib64/libloc_api_v02.so
+framework/com.qti.location.sdk.jar
 -priv-app/com.qualcomm.location/com.qualcomm.location.apk
 vendor/bin/slim_daemon
-vendor/lib/hw/flp.default.so
-vendor/lib/libalarmservice_jni.so
-vendor/lib/libdataitems.so
-vendor/lib/libflp.so
-vendor/lib/libgeofence.so
-vendor/lib/libizat_core.so
-vendor/lib/liblbs_core.so
-vendor/lib/libloc_ext.so
-vendor/lib/liblocationservice.so
-vendor/lib/liblocationservice_glue.so
-vendor/lib/liblowi_client.so
-vendor/lib/libquipc_os_api.so
-vendor/lib/libulp2.so
-vendor/lib/libxtadapter.so
-vendor/lib/libxtwifi_ulp_adaptor.so
-vendor/lib/libxt_native.so
 vendor/lib64/hw/flp.default.so
 vendor/lib64/libalarmservice_jni.so
 vendor/lib64/libdataitems.so
@@ -811,8 +804,26 @@ vendor/lib64/liblowi_wifihal.so
 vendor/lib64/liblowi_wifihal_nl.so
 vendor/lib64/libquipc_os_api.so
 vendor/lib64/libulp2.so
+vendor/lib64/libxt_native.so
 vendor/lib64/libxtadapter.so
 vendor/lib64/libxtwifi_ulp_adaptor.so
+vendor/lib/hw/flp.default.so
+vendor/lib/libalarmservice_jni.so
+vendor/lib/libdataitems.so
+vendor/lib/libflp.so
+vendor/lib/libgeofence.so
+vendor/lib/libizat_core.so
+vendor/lib/liblbs_core.so
+vendor/lib/libloc_ext.so
+vendor/lib/liblocationservice.so
+vendor/lib/liblocationservice_glue.so
+vendor/lib/liblowi_client.so
+vendor/lib/liblowi_wifihal_nl.so
+vendor/lib/libquipc_os_api.so
+vendor/lib/libulp2.so
+vendor/lib/libxt_native.so
+vendor/lib/libxtadapter.so
+vendor/lib/libxtwifi_ulp_adaptor.so
 
 # Graphics firmware
 etc/firmware/a225p5_pm4.fw
@@ -824,6 +835,14 @@ etc/firmware/a330_pfp.fw
 etc/firmware/a330_pm4.fw
 etc/firmware/a420_pfp.fw
 etc/firmware/a420_pm4.fw
+
+# fingerprint
+bin/gx_fpd
+lib64/hw/fingerprint.default.so
+lib64/hw/gxfingerprint.msm8952.so
+lib64/libfp_client.so
+lib64/libfpnav.so
+lib64/libfpservice.so
 
 # IPA
 bin/ipacm-diag
@@ -868,7 +887,6 @@ vendor/lib64/libmm-als.so
 vendor/lib64/libmm-disp-apis.so
 vendor/lib64/libmm-qdcm.so
 
-
 # SRS
 etc/srs/dts.lic
 etc/srs/srs_processing.cfg
@@ -912,22 +930,11 @@ vendor/lib64/libquipc_os_api.so
 vendor/lib64/libsmemlog.so
 
 # Radio
-#-app/btmultisim/btmultisim.apk
-#-app/FrameworkDataStatisticsService/FrameworkDataStatisticsService.apk
-#-app/datastatusnotification/datastatusnotification.apk
-#-app/fastdormancy/fastdormancy.apk
-#-app/QtiDdsSwitchService/QtiDdsSwitchService.apk
-#-app/shutdownlistener/shutdownlistener.apk
-#-app/QComQMIPermissions/QComQMIPermissions.apk
 etc/permissions/qcnvitems.xml
 etc/permissions/qcrilhook.xml
-#etc/permissions/btmultisim.xml
-#etc/permissions/interface_permissions.xml
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 -framework/qcnvitems.jar
 -framework/qcrilhook.jar
-#-framework/btmultisimlibrary.jar
-#-framework/telephony-static-config.jar
 bin/netmgrd
 bin/qmuxd
 bin/radish
@@ -1075,23 +1082,12 @@ bin/mm-qcamera-app
 bin/power_engine
 bin/ptt_socket_app
 bin/qcom-system-daemon
-bin/qemud
-bin/qemu-props
-bin/rmnetcli
 etc/data/dsi_config.xml
 etc/data/netmgr_config.xml
 etc/data/qmi_config.xml
 etc/telephony/config.xml
 etc/capability.xml
 etc/qca6234-service.sh
-lib/egl/egl.cfg
-lib/egl/libGLES_android.so
-lib64/egl/libGLES_android.so
-lib/modules/pronto/pronto_wlan.ko
-lib/librmnetctl.so
-lib64/librmnetctl.so
-lib/libwifi-hal-qcom.so
-lib64/libwifi-hal-qcom.so
 vendor/bin/audioflacapp
 vendor/lib/hw/wbc_hal.default.so
 vendor/lib64/hw/wbc_hal.default.so
@@ -1172,29 +1168,20 @@ vendor/lib64/libpvr.so
 vendor/lib/libpvr.so
 bin/subsystem_ramdump
 vendor/lib/libwvm.so
-bin/ATFWD-daemon
 bin/diag_dci_sample
 bin/diag_klog
 bin/diag_mdlog
 bin/diag_socket_log
 bin/diag_uart_log
-bin/dmapp
 bin/ftmdaemon
 bin/fmconfig
-bin/garden_app
 bin/nl_listener
 bin/sapd
 bin/ssr_diag
 bin/ssr_setup
-bin/tinycap
-bin/tinypcminfo
-bin/tinyplay
 etc/aanc_tuning_mixer.txt
 
-lib/libtinyxml2.so
-lib64/libtinyxml2.so
 vendor/lib64/librmp.so
-etc/ethertypes
 vendor/lib64/libwbc_jni.so
 vendor/lib/lib-dplmedia.so
 vendor/lib/libdrmfs.so

@@ -32,6 +32,8 @@
         style="@style/image_segment"
         android:layout_marginBottom="32dp" />
 
+    <View style="@style/image_segment" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
@@ -44,9 +46,9 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toStartOf="@+id/disable_network_check"
-            android:layout_centerVertical="true"
             android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/disable_network_check"
             android:orientation="vertical" >
 
             <TextView
@@ -120,5 +122,7 @@
             android:layout_height="wrap_content"
             android:text="@string/about_name" />
     </LinearLayout>
+
+    <View style="@style/image_segment" />
 
 </LinearLayout>
