@@ -277,9 +277,7 @@ PRODUCT_PACKAGES += \
     filefrag_blocks \
     mdtp_fota \
     poweroffcharge \
-    productionmode \
-    qcrypto_module.ko \
-    qdrbg_module.ko
+    productionmode
 
 # Sensors
 PRODUCT_COPY_FILES += \
