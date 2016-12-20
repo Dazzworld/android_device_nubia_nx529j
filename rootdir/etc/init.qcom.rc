@@ -307,6 +307,10 @@ on boot
     write /proc/sys/net/ipv6/conf/rmnet_usb2/accept_ra 2
     write /proc/sys/net/ipv6/conf/rmnet_usb3/accept_ra 2
 
+   write /proc/sys/kernel/sched_boost 1
+   write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
+   write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 81250
+
     # To prevent out of order acknowledgements from making
     # connection tracking to treat them as not belonging to
     # the connection they belong to.
@@ -805,7 +809,7 @@ service wifi_ftmd /system/bin/wifi_ftmd
     oneshot
 
 on property:wifi.ftmd.load=true
-    insmod /system/lib/modules/pronto/pronto_wlan.ko con_mode=5
+    insmod /system/lib/modules/wlan.ko con_mode=5
 
 service cnss_diag /system/bin/cnss_diag --q
     class main
