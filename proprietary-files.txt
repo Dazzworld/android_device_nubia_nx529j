@@ -41,9 +41,6 @@ vendor/lib/rfsa/adsp/libobjectMattingApp_skel.so
 vendor/lib/rfsa/adsp/libscveTextReco_skel.so
 
 # Audio libraries
-bin/tinycap
-bin/tinypcminfo
-bin/tinyplay
 vendor/lib/libacdbmapper.so
 vendor/lib64/libacdbmapper.so
 vendor/lib/libaudioalsa.so
@@ -873,7 +870,7 @@ etc/firmware/venus.mdt
 
 # Perf
 bin/msm_irqbalance
-bin/perfd
+vendor/bin/perfd
 vendor/lib64/libqti-perfd-client.so
 vendor/lib/libqti-perfd-client.so
 
@@ -1011,7 +1008,9 @@ vendor/lib/hw/sound_trigger.primary.msm8952.so
 vendor/lib/libsmwrapper.so
 
 # Thermal
-bin/thermal-engine
+vendor/bin/thermal-engine
+vendor/lib/libqti-iop-client.so
+vendor/lib64/libqti-iop-client.so
 vendor/lib64/libthermalclient.so
 vendor/lib64/libthermalioctl.so
 vendor/lib/libthermalclient.so
