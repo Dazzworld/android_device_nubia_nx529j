@@ -166,6 +166,8 @@ public class ModemActivity extends Activity implements OnClickListener {
 
 	protected void updateConfig(int slot, String selectedConfig) {
 		String realConfig = ModemConfig.mOperatorMBN.get(selectedConfig);
+		//result = mQcRilHook.qcRilDeactivateConfigsBySub(slot);
+		//logd("注销配置!slot="+slot+",result="+result);
 		result =mQcRilHook.qcRilSelectConfig(realConfig, slot+1);
 		logd("更新配置!slot="+slot+",result="+result);
 		
