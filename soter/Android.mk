@@ -20,8 +20,18 @@ include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := $(call all-java-files-under, src)
 
-LOCAL_MODULE := soter
+LOCAL_MODULE := ifaa_soter
 LOCAL_MODULE_TAGS := optional
 LOCAL_JAVA_LIBRARIES := bouncycastle
 
 include $(BUILD_JAVA_LIBRARY)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := ifaa_fingerprint
+LOCAL_MODULE_OWNER := nubia
+LOCAL_SRC_FILES := ifaa_fingerprint.jar
+LOCAL_CERTIFICATE := platform
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := JAVA_LIBRARIES
+LOCAL_MODULE_SUFFIX := .jar
+include $(BUILD_PREBUILT)

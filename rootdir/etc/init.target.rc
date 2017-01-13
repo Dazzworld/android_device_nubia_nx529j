@@ -202,7 +202,7 @@ on charger
     load_all_props
     start qcom-post-boot
     setprop sys.usb.config mtp,adb
-    start dmapp
+    start hvdcp_opti
 
 service dts_configurator /system/bin/dts_configurator
     class late_start
@@ -220,6 +220,11 @@ service adsprpcd /system/bin/adsprpcd
     class main
     user media
     group media
+
+service hvdcp_opti /system/bin/hvdcp_opti
+    class main
+    user root
+    group root
 
 on property:init.svc.dts_configurator=stopped
     start dtseagleservice

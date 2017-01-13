@@ -72,7 +72,7 @@
         <ctl name="LSM8 MUX" value="TERT_MI2S_TX" />
     </path>
 
-    <path name="listen-handset-mic">
+    <path name="listen-ape-handset-mic">
         <!-- this is to avoid codec mute when device is not enabled first -->
         <ctl name="LOOPBACK Mode" value="ENABLE" />
         <!-- actual device ebable sequence -->

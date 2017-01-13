@@ -34,10 +34,6 @@ on early-init
 
 on init
 
-    export LD_PRELOAD "libboringssl-compat.so"
-
-    export LD_SHIM_LIBS "/system/vendor/lib/libmmcamera2_sensor_modules.so|libshim_camera.so:/system/lib/hw/camera.vendor.msm8952.so|libshim_camera.so:/system/lib64/libnubiajpeg.so|libshim_camera_app.so:/system/lib/libnubiajpeg.so|libshim_camera_app.so:/system/lib64/libAlgorithm.so|libshim_camera_app.so"
-
     # Set permissions for persist partition
     mkdir /persist 0771 system system
 
@@ -1079,6 +1075,12 @@ service vm_bms /system/bin/vm_bms
     disabled
 
 service msm_irqbalance /system/bin/msm_irqbalance -f /system/vendor/etc/msm_irqbalance.conf
+    class core
+    user root
+    group root
+    disabled
+
+service msm_irqbal_lb /system/bin/msm_irqbalance -f /system/vendor/etc/msm_irqbalance_little_big.conf
     class core
     user root
     group root

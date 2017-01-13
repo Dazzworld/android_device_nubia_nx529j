@@ -126,6 +126,7 @@ audio.offload.buffer.size.kb=64
 audio.offload.min.duration.secs=30
 persist.factory.mic_number=13
 #Enable offload audio video playback by default
+audio.offload.video=true
 av.offload.enable=true
 
 #Enable PCM offload by default
@@ -133,6 +134,15 @@ audio.offload.pcm.16bit.enable=true
 audio.offload.pcm.24bit.enable=true
 #enable voice path for PCM VoIP by default
 use.voice.path.for.pcm.voip=true
+
+#Enable audio track offload by default
+audio.offload.track.enable=false
+
+#Enable music through deep buffer
+audio.deep_buffer.media=true
+
+#Enable downsampling for multi-channel content > 48Khz
+audio.playback.mch.downsample=true
 
 #System property for FM transmitter
 ro.fm.transmitter=false
@@ -194,8 +204,15 @@ ro.cutoff_voltage_mv=3200
 #set device emmc size
 ro.emmc_size=16GB
 
+#properties for limiting preview size in camera
+camera.display.umax=1920x1080
+camera.display.lmax=1280x720
+
+#low power mode for camera
+camera.lowpower.record.enable=1
+
 #force HAL1 for below packages
-camera.hal1.packagelist=com.skype.raider
+camera.hal1.packagelist=com.skype.raider,com.google.android.talk
 
 #Add model number
 persist.sys.modelnumber=NX529J
