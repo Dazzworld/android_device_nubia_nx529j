@@ -15,7 +15,7 @@
 #
 #USE_CLANG_PLATFORM_BUILD := true
 
-DEVICE_PATH := device/nubia/NX529J
+DEVICE_PATH := device/nubia/nx529j
 
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
@@ -70,6 +70,9 @@ BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 # Assert
 TARGET_OTA_ASSERT_DEVICE := NX529J
 
+# Releasetools
+TARGET_RELEASETOOLS_EXTENSIONS := device/qcom/common
+
 # Audio
 AUDIO_FEATURE_ENABLED_ACDB_LICENSE := true
 AUDIO_FEATURE_ENABLED_DS2_DOLBY_DAP := true
@@ -103,7 +106,7 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 # Once camera module can run in the native mode of the system (either
 # 32-bit or 64-bit), the following line should be deleted
 BOARD_QTI_CAMERA_32BIT_ONLY := true
-COMMON_GLOBAL_CFLAGS += -DCAMERA_VENDOR_L_COMPAT
+#COMMON_GLOBAL_CFLAGS += -DCAMERA_VENDOR_L_COMPAT
 
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
@@ -186,8 +189,9 @@ BOARD_USES_QCOM_HARDWARE := true
 BOARD_USES_QC_TIME_SERVICES := true
 
 # Recovery
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/recovery.fstab
 TARGET_RECOVERY_UI_LIB := librecovery_ui_msm
-#TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
+TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_msm
 RECOVERY_SDCARD_ON_DATA := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -195,17 +199,13 @@ TARGET_USERIMAGES_USE_F2FS := true
 
 #TWRP
 #RECOVERY_VARIANT := twrp
-ifneq ($(RECOVERY_VARIANT),twrp)
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/recovery.fstab
-else
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/twrp.fstab
-#TW_USE_TOOLBOX := true
+TW_USE_TOOLBOX := true
+TWHAVE_SELINUX := true
 TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
 TW_THEME := portrait_hdpi
 TW_EXTRA_LANGUAGES := true
 TW_DEFAULT_LANGUAGE := zh_CN
 TW_INPUT_BLACKLIST := "hbtp_vm"
-endif
 
 
 # Media
@@ -241,4 +241,4 @@ WIFI_DRIVER_MODULE_PATH     := "/system/lib/modules/wlan.ko"
 WIFI_DRIVER_MODULE_NAME     := "wlan"
 
 # inherit from the proprietary version
--include vendor/nubia/NX529J/BoardConfigVendor.mk
+-include vendor/nubia/nx529j/BoardConfigVendor.mk

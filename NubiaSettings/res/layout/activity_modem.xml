@@ -92,4 +92,8 @@
         android:text="@string/modem_summary"
         android:textSize="14sp" />
 
+    <Button android:id="@+id/del_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/del_allcofig"/>
 </LinearLayout>

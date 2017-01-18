@@ -190,8 +190,8 @@ set_speaker_light_locked(int event,
     brightness = rgb_to_brightness(state);
     ALOGD("set_speaker_light_locked mode=%d brightnsS=%d\n", state->flashMode, brightness);
 
-    write_int(LED_OUTN, AW_POWER_OFF);
-    write_int(LED_MODE, AW_POWER_OFF);
+    //write_int(LED_OUTN, AW_POWER_OFF);
+    //write_int(LED_MODE, AW_POWER_OFF);
     if (event == L_BATTERY)
     {
 		char charging_status[15];

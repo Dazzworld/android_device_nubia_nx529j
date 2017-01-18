@@ -18,7 +18,7 @@
 set -e
 
 # Required!
-DEVICE=NX529J
+DEVICE=nx529j
 VENDOR=nubia
 
 # Load extractutils and do some sanity checks
@@ -42,6 +42,8 @@ write_headers
 
 # The blobs
 write_makefiles "$MY_DIR"/proprietary-files.txt
+
+append_firmware_calls_to_makefiles
 
 # We are done!
 write_footers

@@ -36,6 +36,7 @@ public class ModemActivity extends Activity implements OnClickListener {
 	private String configs[] = new String[2];
 	private String selectedConfig = null;
 	ProgressDialog progressDialog = null;
+	private Button delall;
 	
 	private boolean result = true;
 	
@@ -68,6 +69,7 @@ public class ModemActivity extends Activity implements OnClickListener {
 		progressDialog.show();
 
 		mQcRilHook = new QcRilHook(this, mQcrilHookCb);
+		
 	}
 
 	private void init() {
@@ -103,6 +105,15 @@ public class ModemActivity extends Activity implements OnClickListener {
 		mCard2Layout = (RelativeLayout) findViewById(R.id.card_2_layout);
 		mCardConfig[0] = (TextView) findViewById(R.id.card1config);
 		mCardConfig[1] = (TextView) findViewById(R.id.card2config);
+		delall = (Button) findViewById(R.id.del_all);
+		delall.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				//mQcRilHook.qcRilCleanupConfigs();		
+				mQcRilHook.qcRilActivateConfig(1);
+			}
+		});
 	}
 
 	public void logd(String log) {
@@ -166,8 +177,8 @@ public class ModemActivity extends Activity implements OnClickListener {
 
 	protected void updateConfig(int slot, String selectedConfig) {
 		String realConfig = ModemConfig.mOperatorMBN.get(selectedConfig);
-		//result = mQcRilHook.qcRilDeactivateConfigsBySub(slot);
-		//logd("注销配置!slot="+slot+",result="+result);
+		result = mQcRilHook.qcRilDeactivateConfigsBySub(slot);
+		logd("注销配置!slot="+slot+",result="+result);
 		result =mQcRilHook.qcRilSelectConfig(realConfig, slot+1);
 		logd("更新配置!slot="+slot+",result="+result);
 		

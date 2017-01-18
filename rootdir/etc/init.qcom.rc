@@ -1239,3 +1239,7 @@ service gx_fpd /system/bin/gx_fpd
     user system
     group system
 
+service alipayd /system/bin/alipayd
+    class late_start
+    user system
+    group system

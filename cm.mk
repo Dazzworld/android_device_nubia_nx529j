@@ -22,15 +22,15 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Inherit from kenzo device
-$(call inherit-product, device/nubia/NX529J/device.mk)
+$(call inherit-product, device/nubia/nx529j/device.mk)
 
 # Set those variables here to overwrite the inherited values.
 BOARD_VENDOR := nubia
 PRODUCT_BRAND := nubia
-PRODUCT_DEVICE := NX529J
-PRODUCT_NAME := cm_NX529J
+PRODUCT_DEVICE := nx529j
+PRODUCT_NAME := cm_nx529j
 PRODUCT_MANUFACTURER := nubia
-PRODUCT_MODEL := NX529J
+PRODUCT_MODEL := nx529j
 TARGET_VENDOR := nubia
 PRODUCT_LOCALES := zh_CN
 
@@ -38,7 +38,7 @@ PRODUCT_GMS_CLIENTID_BASE := android-nubia
 
 TARGET_VENDOR_PRODUCT_NAME := NX529J
 TARGET_VENDOR_DEVICE_NAME := NX529J
-PRODUCT_BUILD_PROP_OVERRIDES += TARGET_DEVICE=NX529J PRODUCT_NAME=NX529J
+PRODUCT_BUILD_PROP_OVERRIDES += TARGET_DEVICE=NX529J PRODUCT_NAME=NX529J PRODUCT_MODEL=NX529J
 
 # Use the latest approved GMS identifiers unless running a signed build
 ifneq ($(SIGN_BUILD),true)

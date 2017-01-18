@@ -25,7 +25,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter NX529J,$(TARGET_DEVICE)),)
+ifneq ($(filter nx529j,$(TARGET_DEVICE)),)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 
@@ -254,6 +254,6 @@ $(shell mkdir -p $(TARGET_OUT)/vendor/lib64; \
         $(TARGET_OUT)/vendor/lib64/libEGL_adreno.so)
 
 
-include device/nubia/NX529J/tftp.mk
+include device/nubia/nx529j/tftp.mk
 
 endif

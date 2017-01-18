@@ -22,7 +22,7 @@ LOCAL_CERTIFICATE := platform
 LOCAL_PRIVILEGED_MODULE := true
 LOCAL_PACKAGE_NAME := NubiaSettings
 
-LOCAL_JAVA_LIBRARIES := telephony-common voip-common ims-common qcril
+LOCAL_JAVA_LIBRARIES := telephony-common voip-common ims-common qcril framework
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
     android-support-v4 \

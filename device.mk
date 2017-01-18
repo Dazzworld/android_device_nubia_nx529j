@@ -17,7 +17,7 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Get non-open-source specific aspects
-$(call inherit-product-if-exists, vendor/nubia/NX529J/NX529J-vendor.mk)
+$(call inherit-product-if-exists, vendor/nubia/nx529j/nx529j-vendor.mk)
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -300,13 +300,13 @@ PRODUCT_PACKAGES += \
 	NubiaSettings \
 
 # Wechat Fingerprint Payment
-PRODUCT_PACKAGES += \
-    ifaa_soter \
-	ifaa_fingerprint
+#PRODUCT_PACKAGES += \
+#    ifaa_soter \
+#	ifaa_fingerprint
 
-PRODUCT_BOOT_JARS += \
-    ifaa_soter \
-	ifaa_fingerprint
+#PRODUCT_BOOT_JARS += \
+#    ifaa_soter \
+#	ifaa_fingerprint
 
 # KeyHandler
 PRODUCT_PACKAGES += \
@@ -339,4 +339,4 @@ PRODUCT_PACKAGES += \
     p2p_supplicant_overlay.conf \
     wpa_supplicant_overlay.conf
 
-$(call inherit-product, device/nubia/NX529J/tapp/copyfiles.mk)
+$(call inherit-product, device/nubia/nx529j/tapp/copyfiles.mk)
