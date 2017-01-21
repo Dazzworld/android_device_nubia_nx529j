@@ -89,9 +89,6 @@ USE_CUSTOM_AUDIO_POLICY := 1
 
 BOARD_USES_SRS_TRUEMEDIA := true
 
-# Malloc
-MALLOC_IMPL := dlmalloc
-
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 BOARD_HAVE_BLUETOOTH := true
@@ -114,7 +111,7 @@ BOARD_CHARGER_DISABLE_INIT_BLANK := true
 
 # CMHW
 BOARD_USES_MOKEE_HARDWARE := true
-BOARD_HARDWARE_CLASS += hardware/cyanogen/mkhw
+BOARD_HARDWARE_CLASS += hardware/mokee/mkhw
 TARGET_TAP_TO_WAKE_NODE := "/data/tp/easy_wakeup_gesture"
 
 # CNE
