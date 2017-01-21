@@ -38,7 +38,7 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 
-import cyanogenmod.providers.CMSettings;
+import mokee.providers.MKSettings;
 
 import com.android.internal.os.DeviceKeyHandler;
 import com.android.internal.widget.LockPatternUtils;
@@ -75,9 +75,9 @@ public class KeyHandler implements DeviceKeyHandler {
 
         final Resources resources = mContext.getResources();
         mProximityTimeOut = resources.getInteger(
-                org.cyanogenmod.platform.internal.R.integer.config_proximityCheckTimeout);
+                org.mokee.platform.internal.R.integer.config_proximityCheckTimeout);
         mProximityWakeSupported = resources.getBoolean(
-                org.cyanogenmod.platform.internal.R.bool.config_proximityCheckOnWake);
+                org.mokee.platform.internal.R.bool.config_proximityCheckOnWake);
 
         if (mProximityWakeSupported) {
             mSensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
@@ -120,9 +120,9 @@ public class KeyHandler implements DeviceKeyHandler {
             }
             Message msg = getMessageForKeyEvent(event);
             boolean defaultProximity = mContext.getResources().getBoolean(
-                org.cyanogenmod.platform.internal.R.bool.config_proximityCheckOnWakeEnabledByDefault);
-            boolean proximityWakeCheckEnabled = CMSettings.System.getInt(mContext.getContentResolver(),
-                    CMSettings.System.PROXIMITY_ON_WAKE, defaultProximity ? 1 : 0) == 1;
+                org.mokee.platform.internal.R.bool.config_proximityCheckOnWakeEnabledByDefault);
+            boolean proximityWakeCheckEnabled = MKSettings.System.getInt(mContext.getContentResolver(),
+                    MKSettings.System.PROXIMITY_ON_WAKE, defaultProximity ? 1 : 0) == 1;
             if (mProximityWakeSupported && proximityWakeCheckEnabled && mProximitySensor != null) {
                 mHandler.sendMessageDelayed(msg, mProximityTimeOut);
                 processEvent(event);

@@ -21,6 +21,7 @@ TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
 PRODUCT_COPY_FILES := $(filter-out frameworks/base/data/keyboards/Generic.kl:system/usr/keylayout/Generic.kl , $(PRODUCT_COPY_FILES))
 
+USE_NINJA := false
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -53,7 +54,7 @@ BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET := 0x02000000
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset BOARD_RAMDISK_OFFSET --tags_offset BOARD_KERNEL_TAGS_OFFSET
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x01E00000
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_APPEND_DTB := true
 BOARD_KERNEL_SEPARATED_DT := true
@@ -106,15 +107,14 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 # Once camera module can run in the native mode of the system (either
 # 32-bit or 64-bit), the following line should be deleted
 BOARD_QTI_CAMERA_32BIT_ONLY := true
-#COMMON_GLOBAL_CFLAGS += -DCAMERA_VENDOR_L_COMPAT
 
 # Charger
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
 
 # CMHW
-BOARD_USES_CYANOGEN_HARDWARE := true
-BOARD_HARDWARE_CLASS += hardware/cyanogen/cmhw
+BOARD_USES_MOKEE_HARDWARE := true
+BOARD_HARDWARE_CLASS += hardware/cyanogen/mkhw
 TARGET_TAP_TO_WAKE_NODE := "/data/tp/easy_wakeup_gesture"
 
 # CNE
@@ -181,7 +181,7 @@ PROTOBUF_SUPPORTED := true
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # Qualcomm
-COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DQCOM_BSP
+BOARD_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DQCOM_BSP
 TARGET_USES_QCOM_BSP := true
 TARGET_USES_ION := true
 TARGET_USES_NEW_ION_API :=true
