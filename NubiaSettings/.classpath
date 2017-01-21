@@ -6,5 +6,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/qcrilhook"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="lib" path="rilhook-dex2jar.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

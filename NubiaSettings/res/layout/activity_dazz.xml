@@ -104,43 +104,6 @@
         </LinearLayout>
     </LinearLayout>
 
-    <View style="@style/image_segment" />
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
-        android:background="@color/white"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingEnd="@dimen/activity_horizontal_margin"
-        android:paddingStart="@dimen/activity_horizontal_margin" >
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:orientation="vertical" >
-
-            <TextView
-                style="@android:style/TextAppearance.Material.Menu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/disable_network_check" />
-
-            <TextView
-                style="@android:style/TextAppearance.Material.Small"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/disable_network_check_summary" />
-        </LinearLayout>
-
-        <Switch
-            android:id="@+id/open_fingerprint_wakeup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true" />
-    </RelativeLayout>
 
     <View style="@style/image_segment" />
     <LinearLayout

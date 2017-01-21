@@ -1,6 +1,7 @@
 package com.dazz.nubiasettings.modem;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.dazz.nubiasettings.DazzActivity;
 import com.dazz.nubiasettings.R;
@@ -12,6 +13,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.PowerManager;
@@ -28,7 +30,6 @@ import android.widget.Toast;
 
 public class ModemActivity extends Activity implements OnClickListener {
 
-	String cm = "OTA_/system/etc/modem_ota/CM/mcfg_sw.mbn1351663707:295912";
 	private QcRilHook mQcRilHook;
 
 	private RelativeLayout mCard1Layout, mCard2Layout;
@@ -36,9 +37,11 @@ public class ModemActivity extends Activity implements OnClickListener {
 	private String configs[] = new String[2];
 	private String selectedConfig = null;
 	ProgressDialog progressDialog = null;
-	private Button delall;
 	
 	private boolean result = true;
+	
+	HashMap<String, String> mbnCofigs = new HashMap<String, String>();
+	
 	
 	Handler handler = new Handler();
 	private QcRilHookCallback mQcrilHookCb = new QcRilHookCallback() {
@@ -49,7 +52,12 @@ public class ModemActivity extends Activity implements OnClickListener {
 		public void onQcRilHookReady() {
 
 			logd("QcRilHookReady");
-			
+			//获取所有可用的mbn配置
+			String configs[] = mQcRilHook.qcRilGetAvailableConfigs(Build.MODEL);
+			for (String str : configs) {
+				String configName = mQcRilHook.qcRilGetMetaInfoForConfig(str);
+				mbnCofigs.put(configName, str);
+			}
 			handler.postDelayed(new Runnable() {
 				public void run() {
 					progressDialog.dismiss();
@@ -93,7 +101,6 @@ public class ModemActivity extends Activity implements OnClickListener {
 				configs[i] = mQcRilHook.qcRilGetMetaInfoForConfig(tmp);
 				mCardConfig[i].setText(configs[i]);
 			} else {
-				//mQcRilHook.qcRilSelectConfig(ModemConfig.CT, 0,i);
 				mCardConfig[i].setText(R.string.get_config_err);
 			}
 
@@ -105,15 +112,6 @@ public class ModemActivity extends Activity implements OnClickListener {
 		mCard2Layout = (RelativeLayout) findViewById(R.id.card_2_layout);
 		mCardConfig[0] = (TextView) findViewById(R.id.card1config);
 		mCardConfig[1] = (TextView) findViewById(R.id.card2config);
-		delall = (Button) findViewById(R.id.del_all);
-		delall.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				//mQcRilHook.qcRilCleanupConfigs();		
-				mQcRilHook.qcRilActivateConfig(1);
-			}
-		});
 	}
 
 	public void logd(String log) {
@@ -176,7 +174,7 @@ public class ModemActivity extends Activity implements OnClickListener {
 	}
 
 	protected void updateConfig(int slot, String selectedConfig) {
-		String realConfig = ModemConfig.mOperatorMBN.get(selectedConfig);
+		String realConfig = mbnCofigs.get(selectedConfig);
 		result = mQcRilHook.qcRilDeactivateConfigsBySub(slot);
 		logd("注销配置!slot="+slot+",result="+result);
 		result =mQcRilHook.qcRilSelectConfig(realConfig, slot+1);
@@ -190,7 +188,7 @@ public class ModemActivity extends Activity implements OnClickListener {
 				}else{
 					toast("更新失败");
 				}
-				//loadConfig();
+				loadConfig();
 			}
 		}, 1000);
 		
@@ -198,7 +196,7 @@ public class ModemActivity extends Activity implements OnClickListener {
 	
 	public void showRebootDiaog(){
 		AlertDialog.Builder builder = new AlertDialog.Builder(this)
-		.setMessage("更新成功,建议重启")
+		.setMessage("更新成功,重启生效")
 		.setPositiveButton("重启", new DialogInterface.OnClickListener() {
 			
 			@Override

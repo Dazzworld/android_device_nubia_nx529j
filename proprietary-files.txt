@@ -1012,13 +1012,13 @@ vendor/lib64/libmm-als.so
 vendor/lib64/libmm-disp-apis.so
 vendor/lib64/libmm-qdcm.so
 
-# SRS
-etc/srs/dts.lic
-etc/srs/srs_processing.cfg
-
 # QMI
 bin/irsc_util
 etc/permissions/qti_permissions.xml
+etc/data/dsi_config.xml
+etc/data/netmgr_config.xml
+etc/data/qmi_config.xml
+etc/telephony/config.xml
 vendor/lib/libdiag.so
 vendor/lib/libdsi_netctrl.so
 vendor/lib/libdsutils.so
@@ -1057,10 +1057,6 @@ vendor/lib64/libsmemlog.so
 # Radio
 etc/permissions/qcnvitems.xml
 etc/permissions/qcrilhook.xml
-etc/data/dsi_config.xml
-etc/data/netmgr_config.xml
-etc/data/qmi_config.xml
-etc/telephony/config.xml
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 -framework/qcnvitems.jar
 -framework/qcrilhook.jar
@@ -1087,39 +1083,10 @@ vendor/lib/libril-qc-qmi-1.so
 vendor/lib/libril-qcril-hook-oem.so
 vendor/lib/libsystem_health_mon.so
 
-# Radio - IMS/has problem
-bin/ims_rtp_daemon
-bin/imscmservice
-bin/imsdatadaemon
-bin/imsqmidaemon
-etc/permissions/imscm.xml
--framework/imscmlibrary.jar
--vendor/app/ims/ims.apk
--vendor/app/imssettings/imssettings.apk
-vendor/lib/lib-imscamera.so
-vendor/lib64/lib-dplmedia.so
-vendor/lib64/lib-ims-rcscmjni.so
-vendor/lib64/lib-imsSDP.so
-vendor/lib64/lib-imscamera.so
-vendor/lib64/lib-imsdpl.so
-vendor/lib64/lib-imsqimf.so
-vendor/lib64/lib-imsrcs.so
-vendor/lib64/lib-imsrcscm.so
-vendor/lib64/lib-imsrcscmclient.so
-vendor/lib64/lib-imsrcscmservice.so
-vendor/lib64/lib-imss.so
-vendor/lib64/lib-imsvt.so
-vendor/lib64/lib-imsxml.so
-vendor/lib64/lib-rcsimssjni.so
-vendor/lib64/lib-rcsjni.so
-vendor/lib64/lib-rtpcommon.so
-vendor/lib64/lib-rtpcore.so
-vendor/lib64/lib-rtpdaemoninterface.so
-vendor/lib64/lib-rtpsl.so
-vendor/lib64/libimscamera_jni.so
-vendor/lib64/libimsmedia_jni.so
-vendor/lib64/librcc.so
-vendor/lib64/libvoice-svc.so
+
+# SRS
+etc/srs/dts.lic
+etc/srs/srs_processing.cfg
 
 # Sensors
 bin/sensors.qcom

@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.dazz.nubiasettings.modem.ModemActivity;
 
-import com.android.internal.telephony.SubscriptionController;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -29,8 +28,8 @@ import android.widget.Toast;
 
 public class DazzActivity extends Activity implements OnClickListener {
 
-	TextView mNetCheckSer,aa;
-	Switch mDisableNetCheck,bb;
+	TextView mNetCheckSer;
+	Switch mDisableNetCheck;
 
 	List<SubscriptionInfo> subs;
 	
@@ -42,7 +41,6 @@ public class DazzActivity extends Activity implements OnClickListener {
 		findViewById(R.id.about_layout).setOnClickListener(this);
 		mNetCheckSer = (TextView) findViewById(R.id.net_checkser);
 		mDisableNetCheck = (Switch) findViewById(R.id.disable_network_check);
-		bb = (Switch) findViewById(R.id.open_fingerprint_wakeup);
 		findViewById(R.id.rp_netcheck).setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -59,15 +57,7 @@ public class DazzActivity extends Activity implements OnClickListener {
 				Settings.Global.putInt(getContentResolver(), "captive_portal_detection_enabled", i);
 			}
 		});
-		
-		bb.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-			
-			@Override
-			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				int i = isChecked?1:0;
-				Settings.System.putInt(getContentResolver(), "nubia_fingerprint_wakeup", i);
-			}
-		});
+
 	}
 
 	protected void showSettingDialog() {
@@ -110,8 +100,6 @@ public class DazzActivity extends Activity implements OnClickListener {
 		boolean st =  Settings.Global.getInt(getContentResolver(),
                 "captive_portal_detection_enabled", 1) == 0;
 		mDisableNetCheck.setChecked(st);
-		st = Settings.System.getInt(getContentResolver(), "nubia_fingerprint_wakeup",0) == 1;
-		bb.setChecked(st);
 	}
 
 	@Override
