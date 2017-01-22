@@ -16,24 +16,24 @@
 
 LOCAL_PATH := $(call my-dir)
 
+
+include $(CLEAR_VARS)
+
+LOCAL_PREBUILT_JAVA_LIBRARIES := \
+	qcril:rilhook-dex2jar.jar
+
+include $(BUILD_MULTI_PREBUILT)
+
 include $(CLEAR_VARS)
 LOCAL_SRC_FILES := $(call all-java-files-under, src)
 LOCAL_CERTIFICATE := platform
 LOCAL_PRIVILEGED_MODULE := true
 LOCAL_PACKAGE_NAME := NubiaSettings
 
-LOCAL_JAVA_LIBRARIES := telephony-common voip-common ims-common qcril framework
+LOCAL_JAVA_LIBRARIES := telephony-common framework qcril
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
-    android-support-v4 \
-    fpser
+    android-support-v4
 
 include $(BUILD_PACKAGE)
 
-include $(CLEAR_VARS)
-
-LOCAL_PREBUILT_JAVA_LIBRARIES := qcril:rilhook-dex2jar.jar
-
-LOCAL_PREBUILT_STATIC_JAVA_LIBRARIES := fpser:libs/fingerInterface.jar
-
-include $(BUILD_MULTI_PREBUILT)
