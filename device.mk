@@ -167,9 +167,9 @@ PRODUCT_PACKAGES += \
     gps.msm8952
 
 # IPACM
-#PRODUCT_PACKAGES += \
-#    IPACM_cfg.xml \
-#    ipacm
+PRODUCT_PACKAGES += \
+    IPACM_cfg.xml \
+    ipacm
 
 # IPv6
 PRODUCT_PACKAGES += \
@@ -294,7 +294,7 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-	camera.msm8952 \
+	libshim_camera \
 	NubiaCamera \
 	libmm-omxcore
 

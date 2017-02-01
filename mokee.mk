@@ -43,6 +43,6 @@ PRODUCT_BUILD_PROP_OVERRIDES += TARGET_DEVICE=NX529J PRODUCT_NAME=NX529J PRODUCT
 # Use the latest approved GMS identifiers unless running a signed build
 ifneq ($(SIGN_BUILD),true)
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BUILD_FINGERPRINT=nubia/NX529J/NX529J:5.1.1/LMY47V/eng.nubia.20160927.144351:user/release-keys \
-    PRIVATE_BUILD_DESC="NX529J-user 5.1.1 LMY47V eng.nubia.20160927.144351 release-keys"
+    BUILD_FINGERPRINT=nubia/NX529J/NX529J:7.1.1/N6F26Q/1b15541367:userdebug/test-keys \
+    PRIVATE_BUILD_DESC="NX529J-user 7.1.1 N6F26Q eng.nubia.20160927.144351 release-keys"
 endif

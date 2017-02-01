@@ -57,9 +57,7 @@ bin/btnvtool
 bin/btState
 bin/hci_qcomm_init
 vendor/lib/libbtnv.so
-vendor/lib/libbt-vendor.so
 vendor/lib64/libbtnv.so
-vendor/lib64/libbt-vendor.so
 
 # Charger
 bin/hvdcp_opti
