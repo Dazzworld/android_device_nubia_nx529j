@@ -104,6 +104,7 @@ ril.ecclist1=112,911,110,122,119,120,000,118
 # System props for bluetooh
 # System prop to turn on hfp client
 bluetooth.hfp.client=1
+qcom.bluetooth.soc=smd
 
 #Simulate sdcard on /data/media
 #

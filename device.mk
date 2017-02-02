@@ -155,9 +155,9 @@ PRODUCT_PACKAGES += \
     org.codeaurora.camera
 
 # FM
-PRODUCT_PACKAGES += \
-    FMRadio \
-    libfmjni
+#PRODUCT_PACKAGES += \
+ #   FMRadio \
+ #  libfmjni
 
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += \
