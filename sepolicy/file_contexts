@@ -4,7 +4,12 @@
 #/system/bin/power_engine                        u:object_r:power_engine_exec:s0
 /system/bin/perfd                               u:object_r:perfd_exec:s0
 /system/bin/thermal-engine                      u:object_r:thermal-engine_exec:s0
-/dev/block/bootdevice/by-name/config            u:object_r:persistent_data_block_device:s0
+/dev/block/bootdevice/by-name/boot      u:object_r:boot_block_device:s0
+/dev/block/bootdevice/by-name/recovery  u:object_r:recovery_block_device:s0
+/dev/block/bootdevice/by-name/system    u:object_r:system_block_device:s0
+/dev/block/bootdevice/by-name/userdata  u:object_r:userdata_block_device:s0
+/dev/block/bootdevice/by-name/cache     u:object_r:cache_block_device:s0
+/dev/block/bootdevice/by-name/config    u:object_r:frp_block_device:s0
 
 # add by nubia start
 /sys/class/proximity/proximity/chip_name                			u:object_r:sysfs_prox_cal:s0
@@ -73,14 +78,6 @@
 /sys/devices/virtual/light/light/dump_tp_parameter					u:object_r:sysfs_rgb_cal:s0
 #add by nubia end
 
-#goodix_fingerprint
-/system/bin/gx_fpd u:object_r:gx_fpd_exec:s0
-
 # Goodix Fingerprint
-/dev/gf66xx-spi     							u:object_r:gx_fpd_device:s0
-/dev/ttyACM[0-9]*   							u:object_r:gx_fpd_device:s0
-/dev/goodix_fp*     							u:object_r:gx_fpd_device:s0
-
-# Goodix Fingerprint data
-/data/system/fingerprint(/.*)?    u:object_r:gx_fpd_data_file:s0
-/persist/data/gxfp(/.*)?    u:object_r:gx_fpd_data_file:s0
+/dev/goodix_fp                          u:object_r:fingerprint_device:s0
+/system/bin/gx_fpd                      u:object_r:goodix_exec:s0
