@@ -129,8 +129,13 @@ audio.offload.buffer.size.kb=64
 audio.offload.min.duration.secs=30
 persist.factory.mic_number=13
 #Enable offload audio video playback by default
-audio.offload.video=true
 av.offload.enable=true
+
+#disable audio offload
+audio.effect.name=srs
+audio.offload.disable=1
+#audio.offload.video=true
+drm.service.enabled=true
 
 #Enable PCM offload by default
 audio.offload.pcm.16bit.enable=true
@@ -142,7 +147,7 @@ use.voice.path.for.pcm.voip=true
 audio.offload.track.enable=false
 
 #Enable music through deep buffer
-audio.deep_buffer.media=true
+audio.deep_buffer.media=false
 
 #Enable downsampling for multi-channel content > 48Khz
 audio.playback.mch.downsample=true
@@ -244,18 +249,13 @@ sys.zte.bootsound.on=1
 persist.sys.ssr.restart_level=3
 persist.sys.ap.restart_level=0
 
-drm.service.enabled=true
 ro.com.android.dataroaming=true
 ro.ril.hsxpa=1
 ro.ril.gprsclass=10
 
 persist.factory.receiver_volume=10
 persist.factory.loopback_volume=12
-audio.effect.name=srs
 persist.factory.hallsensor=true
-
-audio.effect.name=srs
-audio.offload.disable=0
 
 persist.gps.qc_nlp_in_use=1
 persist.loc.nlp_name=com.qualcomm.location
