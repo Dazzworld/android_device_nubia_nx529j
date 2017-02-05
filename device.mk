@@ -289,14 +289,18 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     wcnss_service
 
-#PRODUCT_PACKAGES += \
-#    fingerprintd
+PRODUCT_PACKAGES += \
+    fingerprint.msm8952 \
+    fingerprintd
 
 # Camera
 PRODUCT_PACKAGES += \
 	libshim_camera \
 	NubiaCamera \
 	libmm-omxcore
+
+PRODUCT_PACKAGES+=\
+	 libshims_ims
 
 # Wechat Fingerprint Payment
 #PRODUCT_PACKAGES += \

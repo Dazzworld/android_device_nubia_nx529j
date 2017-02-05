@@ -19,7 +19,7 @@ persist.radio.multisim.config=dsds
 ro.ril.multi_rat_capable=true
 persist.radio.rat_on=combine
 persist.dbg.volte_avail_ovr=1
- persist.dbg.vt_avail_ovr=1
+persist.dbg.vt_avail_ovr=1
 
 debug.sf.hw=0
 debug.egl.hw=0

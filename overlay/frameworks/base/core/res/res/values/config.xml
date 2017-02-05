@@ -341,15 +341,11 @@
     <!-- Operating volatage for bluetooth controller. 0 by default-->
     <integer translatable="false" name="config_bluetooth_operating_voltage_mv">3300</integer>
 
+    <!-- Enable overlay for all location components. -->
+    <string name="config_networkLocationProviderPackageName" translatable="false">com.qualcomm.location</string>
+    <string name="config_fusedLocationProviderPackageName" translatable="false">com.qualcomm.location</string>
+
     <string translatable="false" name="config_radio_access_family">GPRS|EDGE|UMTS|IS95A|IS95B|1XRTT|EVDO_0|EVDO_A|HSDPA|HSUPA|HSPA|EVDO_B|EHRPD|LTE|HSPAP|GSM|EVDO|WCDMA</string>
-
-    <!-- The list absolute paths of jar/apk files containing the device specific handlers,
-         delimited by File.pathSeparator, which defaults to ":" on Android -->
-    <string name="config_deviceKeyHandlerLib" translatable="false">/system/framework/com.cyanogenmod.keyhandler.jar</string>
-
-    <!-- Full qualified name of the class that implements
-         com.android.internal.os.DeviceKeyHandler interface. -->
-    <string name="config_deviceKeyHandlerClass" translatable="false">com.cyanogenmod.settings.device.KeyHandler</string>
 
     <!-- Whether device supports double tap to wake -->
     <bool name="config_supportDoubleTapWake">true</bool>

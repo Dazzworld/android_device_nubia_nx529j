@@ -34,7 +34,7 @@ on early-init
 
 on init
 
-    export LD_SHIM_LIBS "/system/lib/hw/camera.msm8952.so|libshim_camera.so"
+    export LD_SHIM_LIBS "/system/lib/hw/camera.msm8952.so|libshim_camera.so:/system/vendor/lib64/lib-imsvt.so|libshims_ims.so"
 
     # Set permissions for persist partition
     mkdir /persist 0771 system system
@@ -891,10 +891,6 @@ service fingerprintd /system/bin/fingerprintd
 
 service gx_fpd /system/bin/gx_fpd
     class late_start
-    user system
-    group system
-
-service alipayd /system/bin/alipayd
-    class late_start
-    user system
-    group system
+    user root
+    group root system
+    seclabel u:r:goodix:s0

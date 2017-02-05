@@ -423,10 +423,6 @@ key 582   VOICE_ASSIST
 key usage 0x0c006F BRIGHTNESS_UP
 key usage 0x0c0070 BRIGHTNESS_DOWN
 
-# nubia add key begin
-key 752 PALM_LOCK
-# nubia add key end
-
 # Joystick and game controller axes.
 # Axes that are not mapped will be assigned generic axis numbers by the input subsystem.
 axis 0x00 X

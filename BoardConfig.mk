@@ -21,7 +21,7 @@ TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
 PRODUCT_COPY_FILES := $(filter-out frameworks/base/data/keyboards/Generic.kl:system/usr/keylayout/Generic.kl , $(PRODUCT_COPY_FILES))
 
-USE_NINJA := false
+#USE_NINJA := false
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -60,7 +60,9 @@ TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/nubia/msm8952
 TARGET_KERNEL_CONFIG := msm8952_nx529j_defconfig
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
+#TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
+KERNEL_TOOLCHAIN_PREFIX := aarch64-linux-android-
+KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9-cm13/bin
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
@@ -83,8 +85,6 @@ AUDIO_FEATURE_ENABLED_VOICE_CONCURRENCY := true
 AUDIO_USE_LL_AS_PRIMARY_OUTPUT := true
 BOARD_USES_ALSA_AUDIO := true
 USE_CUSTOM_AUDIO_POLICY := 1
-
-BOARD_USES_SRS_TRUEMEDIA := true
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
@@ -115,7 +115,6 @@ TARGET_TAP_TO_WAKE_NODE := "/data/tp/easy_wakeup_gesture"
 
 # CNE
 BOARD_USES_QCNE := true
-TARGET_LDPRELOAD := libNimsWrap.so
 
 # Dex pre-opt to speed up initial boot
 ifeq ($(HOST_OS),linux)
