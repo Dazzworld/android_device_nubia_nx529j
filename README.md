@@ -1,4 +1,1 @@
-NX529J CM13 device  
-
-使用请注明作者SIYANG
-
+Device tree for Nubia Z11mini
