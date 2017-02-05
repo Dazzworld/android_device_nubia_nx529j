@@ -341,4 +341,4 @@ PRODUCT_PACKAGES += \
     p2p_supplicant_overlay.conf \
     wpa_supplicant_overlay.conf
 
-$(call inherit-product, device/nubia/nx529j/tapp/copyfiles.mk)
+$(call inherit-product, device/nubia/nx529j/chager_res/copyfiles.mk)
