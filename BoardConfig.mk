@@ -62,7 +62,7 @@ TARGET_KERNEL_SOURCE := kernel/nubia/msm8952
 TARGET_KERNEL_CONFIG := msm8952_nx529j_defconfig
 #TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 KERNEL_TOOLCHAIN_PREFIX := aarch64-linux-android-
-KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9-cm13/bin
+KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9-mkm/bin
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
@@ -108,7 +108,7 @@ TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
 
-# CMHW
+# MKHW
 BOARD_USES_MOKEE_HARDWARE := true
 BOARD_HARDWARE_CLASS += hardware/mokee/mkhw
 TARGET_TAP_TO_WAKE_NODE := "/data/tp/easy_wakeup_gesture"
