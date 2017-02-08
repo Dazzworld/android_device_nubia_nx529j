@@ -6,4 +6,4 @@ modem.img	            /dev/block/bootdevice/by-name/modem
 hyp.mbn                 /dev/block/bootdevice/by-name/hyp
 keymaster.mbn           /dev/block/bootdevice/by-name/keymaster
 splash.img              /dev/block/bootdevice/by-name/splash
-sbl1.mbn 				/dev/block/bootdevice/by-name/sbl1
+sbl1.mbn 	/dev/block/bootdevice/by-name/sbl1
