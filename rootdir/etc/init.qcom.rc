@@ -830,10 +830,10 @@ service power_engine /system/bin/power_engine
     disabled
 
 #dynamic start cpu1-2
-on property:persist.sys.power_ctrl=1
-    start power_engine
-on property:persist.sys.power_ctrl=0
-    stop power_engine
+#on property:persist.sys.power_ctrl=1
+ #   start power_engine
+#on property:persist.sys.power_ctrl=0
+#   stop power_engine
 
 #This is for TP node.
 service tp_node /system/bin/sh /system/bin/tp_node.sh
