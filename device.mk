@@ -334,6 +334,11 @@ PRODUCT_PACKAGES += \
 
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
+    ro.disableWifiApFirmwareReload=true \
+    wifi.interface=wlan0
+
+# Properties
+PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp,adb \
     persist.sys.isUsbOtgEnabled=true
 
